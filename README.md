@@ -14,3 +14,7 @@ https://typo.tistory.com/entry/Nest-Next-n2server-%EC%8B%9C%EC%9E%91%ED%95%98%EA
 4. 각각의 경로로 vsc를 실행
 
 5. 개발시작
+
+
+※ back 폴더에서 main.ts port 번호 3001번으로 바꿈
+※ back 폴더에서 nest g res [resource_name] 은 나중에 개발 시작할 때 하기
