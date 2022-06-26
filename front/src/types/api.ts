@@ -28,3 +28,11 @@ export interface Voice {
     file_id : number;
     type : string;
 }
+
+export interface User {
+    id : number;
+    name: string;
+    first_name : string;
+    last_name : string;
+    avatar : string;
+}
