@@ -23,4 +23,48 @@ export class GameService {
   async findField():Promise<Field[]>{
     return await this.fieldRepository.find();
   }
+
+  async test(){
+    const db = [];
+    const GameAndFieldAndVoice = await this.gameRepository
+    .createQueryBuilder('g')
+    .innerJoin('g.field', 'f')
+    .innerJoin('g.voices', 'v')
+    .select([
+      'g.id',
+      'g.name',
+      'g.context',
+      'g.level',
+      'f.id',
+      'f.name',
+      'v.id',
+      'v.type',
+      'v.game_id',
+      'v.file_id'
+    ])
+    .getMany();
+    const VoiceAndFile = await this.voiceRepository
+    .createQueryBuilder('v')
+    .innerJoin('v.game', 'g')
+    .innerJoin('v.file', 'fi')
+    .select([
+      'v.id',
+      'v.game_id',
+      'v.file_id',
+      'v.type',
+      'g.id',
+      'fi.id',
+      'fi.name',
+      'fi.size',
+      'fi.mime'
+    ])
+    .where('v.game_id = g.id')
+    .andWhere('v.file_id = fi.id')
+    .getMany();
+
+    db.push(GameAndFieldAndVoice);
+    db.push(VoiceAndFile);
+
+    return db;
+  }
 }
