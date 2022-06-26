@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 function HomeButton() {
     const router = useRouter();
+    console.log(router.pathname)
     return(
         <div style={{display: 'flex', justifyContent: 'center'}}>
             <Link href='/'>
@@ -23,8 +24,8 @@ function HomeButton() {
                     font-size: 22px;
                     font-weight: 500;
                 }
-                `}</style>
+            `}</style>
         </div>
-        )
+    )
 }
 export default HomeButton

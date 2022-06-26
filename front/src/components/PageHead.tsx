@@ -6,6 +6,6 @@ function PageHead({title} : Props) {
         <Head>
             <title>{title} | 술 게임 가이드북</title>
         </Head>
-        )
+    )
 }
 export default PageHead

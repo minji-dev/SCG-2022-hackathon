@@ -37,6 +37,6 @@ function GameSymbol({height, width, name, id} : Props) {
                 }
             `}</style>
         </div>
-        )
+    )
 }
 export default GameSymbol

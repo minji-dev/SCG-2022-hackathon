@@ -1,13 +1,12 @@
 import { Props } from 'types/types'
 import Link from 'next/link'
-import useApi from 'hooks/useApi'
-import { User } from 'types/api'
-function RandomButton() {
+import { useRouter } from 'next/router'
+function ExampleButton({id} : Props) {
     return(
         <div style={{display: 'flex', justifyContent: 'center'}}>
-            <Link href = '/'>
-                <button style={{margin: '10px auto'}}>
-                    랜덤~~~~게임
+            <Link href="/">
+                <button style={{margin: '10px auto' }}>
+                    인트로 듣기
                 </button>
             </Link>
             <style jsx>{`
@@ -23,8 +22,8 @@ function RandomButton() {
                     font-size: 22px;
                     font-weight: 500;
                 }
-            `}</style>
-        </div>
+			`}</style>
+		</div>
     )
 }
-export default RandomButton
+export default ExampleButton

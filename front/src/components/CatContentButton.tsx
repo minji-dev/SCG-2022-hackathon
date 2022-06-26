@@ -3,7 +3,7 @@ import useApi from 'hooks/useApi'
 import { User } from 'types/api'
 import Link from 'next/link'
 
-function CatButton({height, width, name, id} : Props) {
+function CatContentButton({height, width, name, id} : Props) {
     const field = useApi<User>(`users/${id}`)
     return(
         <Link href={`/categories/${id}`}>
@@ -12,7 +12,6 @@ function CatButton({height, width, name, id} : Props) {
                     <h1>{field?.last_name}</h1>
                     <hr/>
                 </a>
-            
                 <style jsx>{`
                     @import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);
                     h1 {
@@ -42,7 +41,7 @@ function CatButton({height, width, name, id} : Props) {
                 `}</style>
             </div>
         </Link>
-        )
+    )
 }
-export default CatButton
+export default CatContentButton
 
