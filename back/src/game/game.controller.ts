@@ -11,5 +11,8 @@ export class GameController {
     return this.gameService.findAllGames();
   }
 
-  
+  @Get('/:id')
+  SpecificGame(){
+    
+  }
 }
