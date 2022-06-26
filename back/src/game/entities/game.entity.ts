@@ -1,4 +1,4 @@
-import { Column, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 import { Field } from "./field.entity";
 import { Voice } from "./voice.entity";
 
@@ -17,9 +17,9 @@ export class Game {
     level: number;
 
     //Foreign key 설정하기
-    @OneToOne( () => Field )
+    @ManyToOne( () => Field, (field)=>field.game )
     @JoinColumn({name:'field'})
-    field: number;
+    field: Field[];
 
     @OneToMany(() => Voice, (voice)=> voice.game) 
     voices: Voice[];

@@ -1,4 +1,4 @@
-import { Column, Entity, JoinColumn, OneToOne, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne, OneToMany, OneToOne, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
 import { Game } from "./game.entity";
 
 @Entity()
@@ -8,4 +8,7 @@ export class Field{
 
     @Column()
     name: string;
+
+    @OneToMany(()=>Game, (game)=>game.field)
+    game:Game;
 }
