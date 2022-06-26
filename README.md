@@ -32,9 +32,17 @@ $ npm i -g @nestjs/mapped-types
 ```
 ### 3-1. Start development server
 
-```shell
-$ npm start
+```bash
+# development
+$ npm run start
+
+# watch mode
+$ npm run start:dev
+
+# production mode
+$ npm run start:prod
 ```
+
 
 서버 시작 후, 
 [`http://localhost:3001`](http://localhost:3001) 에 접속
