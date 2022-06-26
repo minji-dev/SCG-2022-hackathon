@@ -1,12 +1,10 @@
 import { Props } from 'types/types'
-import useApi from 'hooks/useApi'
-import { User } from 'types/api'
+import Link from 'next/link'
 
-function CatButton({height, width, name, id} : Props) {
-    const field = useApi<User>(`users/${id}`)
+function GameSymbol({height, width, name} : Props) {
     return(
         <div>
-            <h1>{field?.last_name}</h1>
+            <h1>{name}</h1>
             <hr/>
             <style jsx>{`
                 @import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);
@@ -38,5 +36,4 @@ function CatButton({height, width, name, id} : Props) {
         </div>
         )
 }
-export default CatButton
-
+export default GameSymbol

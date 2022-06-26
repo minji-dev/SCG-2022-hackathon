@@ -6,7 +6,7 @@ function HomeButton() {
     return(
         <div style={{display: 'flex', justifyContent: 'center'}}>
             <Link href='/'>
-                <button style={{margin: '0 auto', visibility: (router.pathname !== '/' &&  router.pathname !== '/404')? 'visible': 'hidden'}}>
+                <button style={{margin: '10px auto', visibility: (router.pathname !== '/' &&  router.pathname !== '/404')? 'visible': 'hidden'}}>
                     홈으로
                 </button>
             </Link>
