@@ -15,6 +15,7 @@ export class GameController {
   FindField(){
     return this.gameService.findField();
   }
+
   @Get('/:id')
   SpecificGame(){
     

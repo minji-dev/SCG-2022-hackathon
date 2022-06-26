@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Game } from './entities/game.entity';
+import { Game } from '../entities/game.entity';
 import { Repository } from 'typeorm';
-import { Field } from './entities/field.entity';
-import { file } from './entities/file.entity';
-import { Voice } from './entities/voice.entity';
+import { Field } from '../entities/field.entity';
+import { file } from '../entities/file.entity';
+import { Voice } from '../entities/voice.entity';
 
 @Injectable()
 export class GameService {

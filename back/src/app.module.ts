@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { GameModule } from './game/game.module';
+import { HelpersModule } from './helpers/helpers.module';
 
 @Module({
   imports: [
@@ -9,12 +10,12 @@ import { GameModule } from './game/game.module';
     host: 'localhost',
     port: 3306,
     username: 'root',
-    password: '1234',
+    password: 'minji0312!',
     database: 'scg',
     autoLoadEntities: true,
     synchronize: true,
     logging: true,
-  }), GameModule],
+  }), GameModule, HelpersModule],
   controllers: [],
   providers: [],
 })
