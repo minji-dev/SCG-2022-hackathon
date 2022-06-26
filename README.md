@@ -23,18 +23,26 @@ $ git clone https://github.com/minji-dev/SCG-2022-hackathon.git
 
 ```bash
 $ npm install
-```
-```
+
 $ npm i -g @nestjs/cli
-```
-```
+
 $ npm i -g @nestjs/mapped-types
+
+$ npm install mysql2 typeorm @nestjs/typeorm
 ```
 ### 3-1. Start development server
 
-```shell
-$ npm start
+```bash
+# development
+$ npm run start
+
+# watch mode
+$ npm run start:dev
+
+# production mode
+$ npm run start:prod
 ```
+
 
 서버 시작 후, 
 [`http://localhost:3001`](http://localhost:3001) 에 접속
