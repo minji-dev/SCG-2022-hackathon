@@ -18,7 +18,31 @@ const Category: NextPage = () => {
             <li key={game.id}>{game.last_name}</li>
           ))}
         </ul>
+        <style jsx>{`
+        @import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);
+        h1 {
+          color: #333D79;
+          text-align: center;
+          font-family: 'NanumSquare', sans-serif;
+          font-weight: 700;
+          font-size: 40px;
+        }
+        h2 {
+          color: #333D79;
+          font-family: 'NanumSquare', sans-serif;
+        }
+        p {
+          color: #333D79;
+          font-family: 'NanumSquare', sans-serif;
+        }
+        hr {
+            background-color: #333D79;
+            height: 3px;
+            border: 0px;
+        }
+      `}</style>
     </div>
+    
   )
 }
 

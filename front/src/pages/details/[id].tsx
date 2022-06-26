@@ -4,7 +4,7 @@ import useApi from 'hooks/useApi'
 import { useRouter } from 'next/router'
 import { User } from 'types/api'
 
-const Category: NextPage = () => {
+const Detail: NextPage = () => {
   const router = useRouter();
   const { id } = router.query
   const game = useApi<User>(`users/${id}`)
@@ -12,7 +12,7 @@ const Category: NextPage = () => {
   return (
     <div>
         <PageHead title = {game?.first_name}/>
-        <h1 style={{textAlign: "center", width: "304px", justifyContent: "center", margin: "0 auto"}}>{game?.last_name}</h1>
+        <h1 style={{textAlign: "center", width: "304px", justifyContent: "center", margin: "10px auto"}}>{game?.last_name}</h1>
         <div>
             <div style={ {width: "1181px", justifyContent: "center", margin: "0 auto" } }>
                 <h2>인트로</h2>
@@ -25,9 +25,32 @@ const Category: NextPage = () => {
                 <p>{game?.avatar}</p>
             </div>
         </div>
+        <style jsx>{`
+        @import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);
+        h1 {
+          color: #333D79;
+          text-align: center;
+          font-family: 'NanumSquare', sans-serif;
+          font-weight: 700;
+          font-size: 40px;
+        }
+        h2 {
+          color: #333D79;
+          font-family: 'NanumSquare', sans-serif;
+        }
+        p {
+          color: #333D79;
+          font-family: 'NanumSquare', sans-serif;
+        }
+        hr {
+            background-color: #333D79;
+            height: 3px;
+            border: 0px;
+        }
+      `}</style>
     </div>
     
   )
 }
 
-export default Category
+export default Detail

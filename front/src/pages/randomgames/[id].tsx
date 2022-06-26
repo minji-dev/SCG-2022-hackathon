@@ -4,20 +4,18 @@ import useApi from 'hooks/useApi'
 import { useRouter } from 'next/router'
 import { User } from 'types/api'
 import GameSymbol from 'components/GameSymbol'
-import Link from 'next/link'
+import RandomButton from 'components/RandomButton'
 
-const Category: NextPage = () => {
-  const router = useRouter();
-  const { id } = router.query
-  const game = useApi<User>(`users/${id}`)
-  console.log(game)
-
-  return (
+const RandomGame: NextPage = () => {
+    const router = useRouter();
+    const { id } = router.query
+    const game = useApi<User>(`users/${id}`)
+    return (
     <div>
         <PageHead title = "RandomGame"/>
-        <h1 style={{textAlign: "center", justifyContent: "center", margin: "0 auto"}}>잼민이가 좋아하는 랜덤~게임! 아 무슨~게임! 게임 스타트!</h1>
+        <h2 style={{textAlign: "center", justifyContent: "center", margin: "20px auto"}}>잼민이가 좋아하는 랜덤~게임! 아 무슨~게임! 게임 스타트!</h2>
         <div style={{height: "265px", width: "911px", textAlign: "center", justifyContent: "center", margin: "30px auto"}}>
-            <GameSymbol height = {265} width = {200} name={game?.last_name}/>
+            <GameSymbol height = {265} width = {200} id={game?.id}/>
             <h3>gp</h3>
         </div>
         <div style={ {width: "1181px", justifyContent: "center" , margin: "0 auto" } }>
@@ -26,11 +24,7 @@ const Category: NextPage = () => {
                 <p>{game?.avatar}</p>
         </div>
         <div style={{display: 'flex', justifyContent: 'center'}}>
-            <Link href='/'>
-                <button style={{margin: '10px auto', visibility: (router.pathname !== '/' &&  router.pathname !== '/404')? 'visible': 'hidden'}}>
-                    랜덤~~~~게임
-                </button>
-            </Link>
+            <RandomButton/>
         </div>
         <style jsx>{`
         @import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);
@@ -41,9 +35,23 @@ const Category: NextPage = () => {
           font-weight: 700;
           font-size: 40px;
         }
+        h2 {
+          color: #333D79;
+          font-family: 'NanumSquare', sans-serif;
+          font-weight: 550
+        }
+        p {
+          color: #333D79;
+          font-family: 'NanumSquare', sans-serif;
+        }
+        hr {
+            background-color: #333D79;
+            height: 3px;
+            border: 0px;
+        }
       `}</style>
     </div>
   )
 }
 
-export default Category
+export default RandomGame

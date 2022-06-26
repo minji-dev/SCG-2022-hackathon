@@ -1,10 +1,13 @@
 import { Props } from 'types/types'
 import Link from 'next/link'
+import useApi from 'hooks/useApi';
+import { User } from 'types/api';
 
-function GameSymbol({height, width, name} : Props) {
+function GameSymbol({height, width, name, id} : Props) {
+    const game = useApi<User>(`users/${id}`)
     return(
         <div>
-            <h1>{name}</h1>
+            <h1>{game?.last_name}</h1>
             <hr/>
             <style jsx>{`
                 @import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);

@@ -4,6 +4,7 @@ import CatButton from 'components/CatButton'
 import { useRouter } from 'next/router';
 import useApi from 'hooks/useApi';
 import { User } from 'types/api';
+import RandomButton from 'components/RandomButton';
 
  const Home: NextPage = () => {
   const fields = useApi<User[]>(`users?per_page=12`)
@@ -23,6 +24,9 @@ import { User } from 'types/api';
       </div>
       <div style={ { display: 'flex', justifyContent: 'center'} }>
         <CatButton height={250} width={720} id={4}/>
+      </div>
+      <div>
+        <RandomButton/>
       </div>
 
       <style jsx>{`
