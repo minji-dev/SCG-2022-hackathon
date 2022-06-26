@@ -12,7 +12,6 @@ function HomeButton() {
             </Link>
             <style jsx>{`
                 @import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);
-
                 button{
                     width: 180px;
                     height: 50px;

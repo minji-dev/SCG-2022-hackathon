@@ -8,7 +8,7 @@ const Category: NextPage = () => {
   const router = useRouter()
   const { id } = router.query
   const game = useApi<User>(`users/${id}`)
-  const games = useApi<User[]>(`users?per_page=5`)
+  const games = useApi<User[]>(`users?per_page=${id}`)
   return (
     <div>
         <PageHead title = {game?.first_name}/>
