@@ -31,7 +31,7 @@ export interface Voice {
 
 export interface User {
     id : number;
-    name: string;
+    email: string;
     first_name : string;
     last_name : string;
     avatar : string;

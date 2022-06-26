@@ -7,12 +7,16 @@ import { User } from 'types/api'
 const Category: NextPage = () => {
   const router = useRouter();
   const { id } = router.query
-  const games = useApi<User>(`users/${id}`)
+  const games = useApi<User[]>(`users?per_page=${id}`)
+  console.log(games)
   return (
     <div>
-        <PageHead title = {games?.first_name}/>
-        {games?.first_name}
-        {games?.last_name}
+        <PageHead title = "fucking"/>
+        <ul>
+          {games?.slice(0, 3).map((game) => (
+            <li key={game.id}>{game.last_name}</li>
+          ))}
+        </ul>
     </div>
   )
 }
