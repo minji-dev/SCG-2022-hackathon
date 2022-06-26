@@ -1,20 +1,58 @@
-# 2022 summer SCG hackathon
+# SCG 2022 summer hackathon
+
+## Contents
+
+- [Installation](#installation)
+- [Documentation](#Documentation)
+
+---
+<br>
+
+## Installation
+
+### Prerequistes
 
 
-NestJS-NextJS
+### 1. Clone
 
-자세한 것은 여기 참고 : 
-https://typo.tistory.com/entry/Nest-Next-n2server-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0
+```shell
+$ git clone https://github.com/minji-dev/SCG-2022-hackathon.git
+```
 
-1. front와 back 파일을 한 번에 다운받기
+### 2. Install Packages
 
-2. NestJS-NextJS/front -> NextJS
-3. NestJS-NextJS/back -> NestJS
+```bash
+$ npm install
+```
+```
+$ npm i -g @nestjs/cli
+```
+```
+$ npm i -g @nestjs/mapped-types
+```
+### 3-1. Start development server
 
-4. 각각의 경로로 vsc를 실행
+```shell
+$ npm start
+```
 
-5. 개발시작
+서버 시작 후, 
+[`http://localhost:3001`](http://localhost:3001) 에 접속
+
+<br>
+
+## Documentation
+
+### 개발 언어
+- `TypeScript`
+- `NestJS`
+- `NextJS`
+
+### 주의사항
+1. back 폴더에서 main.ts port 번호 3001번으로 바꿈
+2. back 폴더에서 nest g res [resource_name] 은 나중에 개발 시작할 때 하기
 
 
-※ back 폴더에서 main.ts port 번호 3001번으로 바꿈
-※ back 폴더에서 nest g res [resource_name] 은 나중에 개발 시작할 때 하기
+### 참고자료
+1. 기초세팅 : https://typo.tistory.com/entry/Nest-Next-n2server-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0
+---
