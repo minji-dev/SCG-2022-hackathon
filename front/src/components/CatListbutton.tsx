@@ -10,7 +10,7 @@ function CatListButton({id} : Props) {
         <div style={{display: 'flex', justifyContent: 'center'}}>
             <Link href={`/categories/${game?.id}`}>
                 <button style={{margin: '10px auto', visibility: (router.pathname !== '/' &&  router.pathname !== '/404')? 'visible': 'hidden'}}>
-                    {game?.last_name}
+                    {game?.first_name}
                 </button>
             </Link>
             <style jsx>{`

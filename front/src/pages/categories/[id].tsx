@@ -4,6 +4,7 @@ import useApi from 'hooks/useApi'
 import { useRouter } from 'next/router'
 import { User } from 'types/api'
 import CatListButton from 'components/CatListbutton'
+import GameButton from 'components/GameButton'
 
 const Category: NextPage = () => {
 	const router = useRouter()
@@ -13,12 +14,14 @@ const Category: NextPage = () => {
 	return (
 		<div>
 			<PageHead title = {game?.first_name}/>
-			<h1>{game?.first_name}</h1>
-			<ul>
-			{games?.slice(0, 20).map((gameeach) => (
-				<li key={gameeach.id}>{gameeach.last_name}</li>
-			))}
-			</ul>
+			<h1>{game?.last_name}</h1>
+			<div style={{display: "grid", gridTemplateColumns: "auto auto auto"}}>
+				<div>
+					{games?.slice(0, games.length).map((gameeach) => (
+						<GameButton id={gameeach.id} width={200} height={300}/>
+					))}
+				</div>
+			</div>
 			<style jsx>{`
 				@import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);
 				h1 {
