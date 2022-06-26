@@ -1,4 +1,4 @@
-export interface ReqresApiResponse<T> {
+export interface ApiResponse<T> {
     data: T;
 }
 
