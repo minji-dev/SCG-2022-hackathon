@@ -1,0 +1,13 @@
+h1 {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 2px 134px;
+    gap: 10px;
+    width: 1136px;
+    height: 113px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    color: #333D79;
+}
