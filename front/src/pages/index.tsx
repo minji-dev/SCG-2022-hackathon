@@ -10,7 +10,7 @@ import RandomButton from 'components/RandomButton';
   const fields = useApi<User[]>(`users?per_page=12`)
 
   return (
-    <>
+    <div>
       <PageHead title="메인 화면"/>
       {/* <FontAwesomeIcon icon='clover' size='5x'/> */}
       <h1> 술 게임 가이드북 </h1>
@@ -39,7 +39,7 @@ import RandomButton from 'components/RandomButton';
           font-size: 40px;
         }
       `}</style>
-    </>
+    </div>
   )
 }
 
