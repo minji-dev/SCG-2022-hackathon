@@ -6,11 +6,6 @@ import { GameService } from './game.service';
 export class GameController {
   constructor(private readonly gameService: GameService) {}
 
-  @Get('/')
-  test(){
-    return '/';
-  }
-
   @Get('/:category') //     /games/:category -> 술게임 카테고리 별로 조회
   FindGamesByCategory(
     @Param('category') category: string
