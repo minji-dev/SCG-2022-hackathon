@@ -3,14 +3,14 @@ import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 @Entity()
 export class file{
     @PrimaryGeneratedColumn()
-    id: number;
+    id: number; //번호
 
     @Column("text")
-    name: string;
+    name: string; //파일명
 
     @Column()
-    size: number;
+    size: number; //파일크기
 
     @Column("varchar", {length:50})
-    mime: string;
+    mime: string; //mime
 }

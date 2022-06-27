@@ -13,7 +13,7 @@ export class GameController {
 
   @Get('/test')
   test(){
-    return this.gameService.test();
+    
   }
   
 }

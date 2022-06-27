@@ -4,11 +4,11 @@ import { Game } from "./game.entity";
 @Entity()
 export class Field{
     @PrimaryGeneratedColumn()
-    id: number;
+    id: number; //번호
 
     @Column()
-    name: string;
+    name: string; //이름
 
     @OneToMany(()=>Game, (game)=>game.field)
-    game:Game;
+    game:Game; //game entity와 연결
 }

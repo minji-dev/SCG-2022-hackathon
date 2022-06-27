@@ -1,26 +1,22 @@
 import { Column, Entity, JoinColumn, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 import { Field } from "./field.entity";
-import { Voice } from "./voice.entity";
 
 @Entity()
 export class Game {
     @PrimaryGeneratedColumn()
-    id: number;
+    id: number; //번호
 
     @Column()
-    name: string;
+    name: string; //이름
 
     @Column()
-    context: string;
+    context: string; //설명
 
     @Column({nullable: true})
-    level: number;
+    level: number; //난이도
 
     //Foreign key 설정하기
     @ManyToOne( () => Field, (field)=>field.game )
     @JoinColumn({name:'field'})
-    field: Field[];
-
-    @OneToMany(() => Voice, (voice)=> voice.game) 
-    voices: Voice[];
+    field: Field[]; //분야
 }
