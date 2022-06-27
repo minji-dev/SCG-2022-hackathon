@@ -13,7 +13,7 @@ function GameButton({ height, width, id }: Props) {
         <h1>{game?.last_name}</h1>
         <hr />
         <Image
-          src={`${game?.avatar}`}
+          src={ game?.avatar ? `${game?.avatar}` : '/'}
           alt={`${game?.last_name}`}
           width={128}
           height={128}
