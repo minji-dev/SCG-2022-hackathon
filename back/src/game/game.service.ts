@@ -16,7 +16,7 @@ export class GameService {
     .leftJoinAndSelect('g.field', 'f') //게임 - 분야 join
     .leftJoinAndSelect('g.game_file', 'g_fi')  //게임 - 게임파일 join
     .leftJoinAndSelect('g_fi.file_id', 'fi') //게임파일 - 첨부파일 join
-    .leftJoinAndSelect('fi.field_file', 'f_fi') //첨부파일 - 분야파일 join
+    //.leftJoinAndSelect('fi.field_file', 'f_fi') //첨부파일 - 분야파일 join
     .where('f.name = :category', {category: category})
     .getMany(); 
   }
@@ -27,7 +27,7 @@ export class GameService {
     .leftJoinAndSelect('g.field', 'f') //게임 - 분야 join
     .leftJoinAndSelect('g.game_file', 'g_fi')  //게임 - 게임파일 join
     .leftJoinAndSelect('g_fi.file_id', 'fi') //게임파일 - 첨부파일 join
-    .leftJoinAndSelect('fi.field_file', 'f_fi') //첨부파일 - 분야파일 join
+    //.leftJoinAndSelect('fi.field_file', 'f_fi') //첨부파일 - 분야파일 join
     .where('f.name = :category', {category: category})
     .andWhere('g.id = :id', {id: id})
     .getMany(); 
