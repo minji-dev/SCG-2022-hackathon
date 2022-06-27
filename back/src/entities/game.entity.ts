@@ -5,13 +5,13 @@ import { Game_File } from "./game_file.entity";
 @Entity()
 export class Game {
     @PrimaryGeneratedColumn()
-    id: number;
+    id: number; //번호
 
     @Column()
-    name: string;
+    name: string; //이름
 
     @Column()
-    context: string;
+    context: string; //설명
 
     @Column()
     level: number;

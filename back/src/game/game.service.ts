@@ -12,7 +12,6 @@ export class GameService {
     @InjectRepository(Field) private fieldRepository: Repository<Field>,
     @InjectRepository(File) private fileRepository: Repository<File>,
     ){}
-  //constructor(@InjectRepository(Field) private fieldRepositary: Repository<Field>){}
   
   async findAllGames():Promise<Game[]>{
     return await this.gameRepository.find();

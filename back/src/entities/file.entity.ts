@@ -6,13 +6,13 @@ import { Field_File } from "./field_file.entity";
 @Entity()
 export class File{
     @PrimaryGeneratedColumn()
-    id: number;
+    id: number; //번호
 
     @Column("text")
-    name: string;
+    name: string; //파일명
 
     @Column()
-    size: number;
+    size: number; //파일크기
 
     @Column("varchar", {length:50})
     mime: string;
