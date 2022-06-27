@@ -4,11 +4,12 @@ import { GameController } from './game.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Game } from '../entities/game.entity';
 import { Field } from '../entities/field.entity';
-import { Voice } from '../entities/voice.entity';
-import { file } from '../entities/file.entity';
+import { File } from '../entities/file.entity';
+import { Game_File } from 'src/entities/game_file.entity';
+import { Field_File } from 'src/entities/field_file.entity';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Game,Field,Voice,file])],
+    imports: [TypeOrmModule.forFeature([Game,Field,File,Game_File,Field_File])],
   controllers: [GameController],
   providers: [GameService],
 })

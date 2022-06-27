@@ -3,8 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Game } from '../entities/game.entity';
 import { Repository } from 'typeorm';
 import { Field } from '../entities/field.entity';
-import { file } from '../entities/file.entity';
-import { Voice } from '../entities/voice.entity';
+import { File } from '../entities/file.entity';
 
 @Injectable()
 export class HelpersService {
@@ -12,7 +11,6 @@ export class HelpersService {
     @InjectRepository(Game) private gameRepository: Repository<Game>,
     // @InjectRepository(Field) private fieldRepository: Repository<Field>,
     // @InjectRepository(file) private fileRepository: Repository<file>,
-    // @InjectRepository(Voice) private voiceRepository: Repository<Voice>
     ){}
     
   async getAllHelpers(): Promise<Game[]>{ //전체 헬퍼. 3개. 굳이?
