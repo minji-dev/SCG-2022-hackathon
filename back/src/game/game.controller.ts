@@ -6,18 +6,13 @@ import { GameService } from './game.service';
 export class GameController {
   constructor(private readonly gameService: GameService) {}
 
-  @Get() //     /games -> 술게임 목록
+  @Get() //     /games -> 술게임 목록 전체 조회
   FindAllGames(){
     return this.gameService.findAllGames();
   }
 
-  @Get('/test')
-  test(){
-    return this.gameService.test();
-  }
 
-
-  @Get('/:id')
+  @Get('/:id') //      /games/id -> 특정 술게임 조회
   FindOneGame(
     @Param('id') id:string
   ){
