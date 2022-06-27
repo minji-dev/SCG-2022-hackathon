@@ -11,6 +11,12 @@ export class GameController {
     return this.gameService.findAllGames();
   }
 
+  @Get('/test')
+  test(){
+    return this.gameService.test();
+  }
+
+
   @Get('/:id')
   FindOneGame(
     @Param('id') id:string
