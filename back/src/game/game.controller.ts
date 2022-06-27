@@ -11,8 +11,9 @@ export class GameController {
     return this.gameService.findAllGames();
   }
 
-  @Get('/:id')
-  SpecificGame(){
+  @Get('/test')
+  test(){
     
   }
+  
 }
