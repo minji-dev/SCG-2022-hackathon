@@ -23,12 +23,12 @@ $ git clone https://github.com/minji-dev/SCG-2022-hackathon.git
 
 ```bash
 $ npm install
-
+<!-- 
 $ npm i -g @nestjs/cli
 
 $ npm i -g @nestjs/mapped-types
 
-$ npm install mysql2 typeorm @nestjs/typeorm
+$ npm install mysql2 typeorm @nestjs/typeorm -->
 ```
 ### 3-1. Start development server
 
