@@ -10,7 +10,7 @@ export class GameService {
     @InjectRepository(Game) private gameRepository: Repository<Game>,
     ){}
   
-  async findGamesByCategory(category: string){
+  async findGamesByField(field: number){
     const result = await this.gameRepository
     .createQueryBuilder('g')
     .leftJoin('g.field', 'f') //게임 - 분야 join
@@ -29,13 +29,13 @@ export class GameService {
       'fi.size',
       'fi.mime'
     ])
-    .where('f.name = :category', {category: category})
+    .where('f.id = :field', { field: field })
     .getMany(); 
 
     return result;
   }
 
-  async findGameByCategoryAndId(category:string, id:number){
+  async findGameById(id: number){
     let result = await this.gameRepository
     .createQueryBuilder('g')
     .leftJoinAndSelect('g.field', 'f')
@@ -54,10 +54,8 @@ export class GameService {
       'fi.size',
       'fi.mime'
     ])
-    .where('f.name = :category', {category: category})
-    .andWhere('g.id = :id', {id: id})
+    .where('g.id = :id', { id: id })
     .getMany(); 
     return result;
   }
-
 }
