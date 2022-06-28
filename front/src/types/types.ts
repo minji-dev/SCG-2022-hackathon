@@ -4,4 +4,5 @@ export interface Props {
   height?: Number;
   name?: String;
   id?: number;
+  difficulty?: number;
 }

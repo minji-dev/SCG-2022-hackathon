@@ -3,10 +3,16 @@ import Link from "next/link";
 import useApi from "hooks/useApi";
 import { User } from "types/api";
 import Image from "next/image";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
-function GameButton({ height, width, id }: Props) {
+function GameButton({ height, width, id, difficulty }: Props) {
   const game = useApi<User>(`users/${id}`);
   console.log(game);
+  let arr = []
+  difficulty = 3;
+  for( let i = 0; i < difficulty; i++ ) {
+    arr.push(<img src="/Soju.png" alt="a" style={ {height: "40px", transform: "rotate(25deg)", marginRight: "-3px"} }/>);
+  }
   return (
     <Link href={`/details/${id}`}>
       <div>
@@ -19,6 +25,10 @@ function GameButton({ height, width, id }: Props) {
           height={128}
         />
         <hr />
+        <p>
+          <h2>난이도:</h2>
+          {arr}
+        </p>
         <style jsx>{`
           @import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);
           h1 {

@@ -10,6 +10,7 @@ const Category: NextPage = () => {
   const { id } = router.query;
   const game = useApi<User>(`users/${id}`);
   const games = useApi<User[]>(`users?per_page=${id}`);
+
   return (
     <div>
       <PageHead title={game?.first_name} />
@@ -17,13 +18,13 @@ const Category: NextPage = () => {
       <div style={{ display: "grid", gridTemplateColumns: "auto auto auto" }}>
         <div>
           {games?.map((gameeach) => (
-            <GameButton
-              key={gameeach.id}
-              id={gameeach.id}
-              width={200}
-              height={300}
-            />
-          ))}
+              <GameButton
+                key={gameeach.id}
+                id={gameeach.id}
+                width={200}
+                height={300}
+              />
+          ))} 
         </div>
       </div>
       <style jsx>{`
