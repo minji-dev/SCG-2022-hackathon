@@ -11,9 +11,6 @@ export class File{
     @Column("text")
     name: string; //파일명
 
-    @Column()
-    size: number; //파일크기
-
     @Column("varchar", {length:50})
     mime: string; //mime
 

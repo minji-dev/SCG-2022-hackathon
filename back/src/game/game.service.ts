@@ -26,7 +26,6 @@ export class GameService {
       'g_fi.type',
       'fi.id',
       'fi.name',
-      'fi.size',
       'fi.mime',
       'fi.location'
     ])
@@ -52,7 +51,6 @@ export class GameService {
       'g_fi.type',
       'fi.id',
       'fi.name',
-      'fi.size',
       'fi.mime',
       'fi.location'
     ])
