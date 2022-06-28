@@ -38,7 +38,8 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 ```bash
 $ npm i -D prettier
 $ npm i -D eslint-config-prettier eslint-plugin-prettier
-$ npm i axios
+$ npm install axios
+$ npm install -D tailwindcss postcss autoprefixer
 ```
 
 ## .eslintrc.js
