@@ -10,13 +10,9 @@ export class HelpersController {
     return this.helperService.getAllHelpers();
   }
 
-  @Get('/:game')// 3개 중 하나 고르기
+  @Get('/:game')// 4개 중 하나 고르기
   GetHelper(@Param('game') game: number){
     return this.helperService.getHelper(game);
   }
   
-  @Get('/random') // 전체 중 하나 랜덤
-  GetRandom(){
-    return this.helperService.getRandom();
-  }
 }

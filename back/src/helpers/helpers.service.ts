@@ -16,81 +16,88 @@ export class HelpersService {
     
   async getAllHelpers() { //전체 헬퍼의 image 파일
     const helpers: string[] = ["훈민정음", "레코드잉잉잉", "지하철"];
-
-    let result = await this.gameRepository.createQueryBuilder('g')
+    let result = [];
+    let result_1 = await this.gameRepository.createQueryBuilder('g')
         .leftJoinAndSelect('g.field', 'f')
         .leftJoinAndSelect('g.game_file', 'g_fi')
         .leftJoinAndSelect('g_fi.file_id', 'fi')
         .select([
-            'g.id',
-            'g.name',
-            'f.id',
-            'f.name',
-            'g_fi.id',
-            'g_fi.type',
-            'fi.id',
-            'fi.name',
-            'fi.size',
-            'fi.mime',
+            'g.id', 'g.name',
+            'f.id', 'f.name',
+            'g_fi.id', 'g_fi.type',
+            'fi.id', 'fi.name', 'fi.size', 'fi.mime',
         ])
         .where("g.name = :name", { name: helpers[0] })
-        .andWhere("g.name = :name", { name: helpers[1] })
-        .andWhere("g.name = :name", { name: helpers[2] })
+        .getMany();
+
+    let result_2 = await this.gameRepository.createQueryBuilder('g')
+        .leftJoinAndSelect('g.field', 'f')
+        .leftJoinAndSelect('g.game_file', 'g_fi')
+        .leftJoinAndSelect('g_fi.file_id', 'fi')
+        .select([
+            'g.id', 'g.name',
+            'f.id', 'f.name',
+            'g_fi.id', 'g_fi.type',
+            'fi.id', 'fi.name', 'fi.size', 'fi.mime',
+        ])
+        .where("g.name = :name", { name: helpers[1] })
+        .getMany();
+
+    let result_3 = await this.gameRepository.createQueryBuilder('g')
+        .leftJoinAndSelect('g.field', 'f')
+        .leftJoinAndSelect('g.game_file', 'g_fi')
+        .leftJoinAndSelect('g_fi.file_id', 'fi')
+        .select([
+            'g.id', 'g.name',
+            'f.id', 'f.name',
+            'g_fi.id', 'g_fi.type',
+            'fi.id', 'fi.name', 'fi.size', 'fi.mime',
+        ])
+        .where("g.name = :name", { name: helpers[2] })
         .getMany();
         
+    result.push(result_1, result_2, result_3); 
     return result;
   }
 
   async getHelper(game) {
     let random;
-    const initialSound: number[] = [
-        0x3131, 0x3134, 0x3137, 0x3139, 
-        0x3141, 0x3142, 0x3145, 0x3147, 
-        0x3148, 0x314a, 0x314e
-    ];
-    const lines: string[] = ["1", "2", "3", "4", "5", "9", "수인분당선"];
-    const singers: string[] = ["싸이", "IU", "빅뱅", "소녀시대", "엑소", "방탄소년단", "블랙핑크", "트와이스", "레드벨벳"];
     
     if(game == 0) { //훈민정음
         const result = [];
+        const initialSound: string[] = [
+            "ㄱ", "ㄴ", "ㄷ", "ㄹ", "ㅁ", "ㅂ",
+            "ㅅ", "ㅇ", "ㅈ", "ㅊ", "ㅎ"
+        ];
         for(let i=0; i<2; i++) {
             random = Math.floor(Math.random() * 11);
             result.push(initialSound[random]);
         }
         return result;
     } else if(game == 1) { //지하철
+        const lines: string[] = ["1", "2", "3", "4", "5", "9", "수인분당선"];
         random = Math.floor(Math.random() * 7);
         return lines[random];
     } else if(game == 2) { //레코드
+        const singers: string[  ] = ["싸이", "IU", "빅뱅", "소녀시대", "엑소", "방탄소년단", "블랙핑크", "트와이스", "레드벨벳"];
         random = Math.floor(Math.random() * 9);
         return singers[random];
+    } else if(game == 3) { //랜덤추천
+        random = Math.floor(Math.random() * 19 + 1);
+        let result = await this.gameRepository.createQueryBuilder('g')
+            .leftJoinAndSelect('g.field', 'f')
+            .leftJoinAndSelect('g.game_file', 'g_fi')
+            .leftJoinAndSelect('g_fi.file_id', 'fi')
+            .select([
+                'g.id', 'g.name', 'g.context', 'g.level',
+                'f.id', 'f.name',
+                'g_fi.type',
+                'fi.id', 'fi.name', 'fi.size', 'fi.mime',
+            ])
+            .where("g.id = :id", { id: random })
+            .getMany();
+        return result;
     }
-
   }
 
-  async getRandom() { //랜덤하게 하나 리턴
-    let random = Math.floor(Math.random() * 19 + 1);
-
-    let result = await this.gameRepository.createQueryBuilder('g')
-        .leftJoinAndSelect('g.field', 'f')
-        .leftJoinAndSelect('g.game_file', 'g_fi')
-        .leftJoinAndSelect('g_fi.file_id', 'fi')
-        .select([
-            'g.id',
-            'g.name',
-            'g.context',
-            'g.level',
-            'f.id',
-            'f.name',
-            'g_fi.type',
-            'fi.id',
-            'fi.name',
-            'fi.size',
-            'fi.mime',
-        ])
-        .where("g.id = :id", { id: random })
-        .getMany();
-
-    return result;
-  }
 }
