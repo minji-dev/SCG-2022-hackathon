@@ -6,6 +6,7 @@ module.exports = {
     },
     "extends": [
         "eslint:recommended",
+        "plugin:prettier/recommended",
         "plugin:react/recommended",
         "plugin:@typescript-eslint/recommended"
     ],
@@ -22,6 +23,12 @@ module.exports = {
         "@typescript-eslint"
     ],
     "rules": {
-        "react/react-in-jsx-scope": "off"
+        "react/react-in-jsx-scope": "off",
+        'prettier/prettier':[
+            'error',
+            {
+                endOfLine:auto
+            },
+        ]
     }
 }
