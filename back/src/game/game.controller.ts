@@ -6,12 +6,12 @@ import { GameService } from './game.service';
 export class GameController {
   constructor(private readonly gameService: GameService) {}
 
-  @Get() //     /games/:field -> 술게임 카테고리 별로 조회
+  @Get() //     /games?field=1 -> 술게임 카테고리 별로 조회
   findGamesByField(@Query('field') field: number){
     return this.gameService.findGamesByField(field);    
   }
 
-  @Get('/:id') //      /games?id=0 -> 원하는 게임 id로 조회
+  @Get('/:id') //      /games/1 -> 원하는 게임 id로 조회
   findGameById(@Param('id') id: number){
     return this.gameService.findGameById(id);
   }
