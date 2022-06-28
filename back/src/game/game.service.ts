@@ -19,6 +19,7 @@ export class GameService {
     .select([
       'g.id',
       'g.name',
+      'g.intro',
       'g.context',
       'g.level',
       'f.id',
@@ -44,6 +45,7 @@ export class GameService {
     .select([
       'g.id',
       'g.name',
+      'g.intro',
       'g.context',
       'g.level',
       'f.id',
