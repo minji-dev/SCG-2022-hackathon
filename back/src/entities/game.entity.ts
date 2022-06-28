@@ -16,6 +16,9 @@ export class Game {
     @Column()
     level: number;
 
+    @Column()
+    intro: string;
+
     //Foreign key 설정하기
     @ManyToOne( () => Field, (field)=>field.game )
     @JoinColumn({name: 'field'})
