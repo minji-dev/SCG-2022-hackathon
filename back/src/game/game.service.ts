@@ -27,7 +27,8 @@ export class GameService {
       'fi.id',
       'fi.name',
       'fi.size',
-      'fi.mime'
+      'fi.mime',
+      'fi.location'
     ])
     .where('f.id = :field', { field: field })
     .getMany(); 
@@ -52,7 +53,8 @@ export class GameService {
       'fi.id',
       'fi.name',
       'fi.size',
-      'fi.mime'
+      'fi.mime',
+      'fi.location'
     ])
     .where('g.id = :id', { id: id })
     .getMany(); 
