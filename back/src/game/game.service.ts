@@ -2,31 +2,20 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Game } from '../entities/game.entity';
 import { Repository } from 'typeorm';
-import { Field } from '../entities/field.entity';
-import { File } from '../entities/file.entity';
+
 
 @Injectable()
 export class GameService {
   constructor(
     @InjectRepository(Game) private gameRepository: Repository<Game>,
-    @InjectRepository(Field) private fieldRepository: Repository<Field>,
-    @InjectRepository(File) private fileRepository: Repository<File>,
     ){}
   
-  async findAllGames():Promise<Game[]>{
-    return await this.gameRepository.find();
-  }
-
-  async findField():Promise<Field[]>{
-    return await this.fieldRepository.find();
-  }
-
-  async test(){
-    const db = [];
-    const GameAndFieldAndVoice = await this.gameRepository
+  async findGamesByCategory(category: string){
+    const result = await this.gameRepository
     .createQueryBuilder('g')
-    .innerJoin('g.field', 'f')
-    .innerJoin('g.voices', 'v')
+    .leftJoin('g.field', 'f') //게임 - 분야 join
+    .leftJoin('g.game_file', 'g_fi')  //게임 - 게임파일 join
+    .leftJoin('g_fi.file_id', 'fi') //게임파일 - 첨부파일 join
     .select([
       'g.id',
       'g.name',
@@ -34,34 +23,41 @@ export class GameService {
       'g.level',
       'f.id',
       'f.name',
-      'v.id',
-      'v.type',
-      'v.game_id',
-      'v.file_id'
+      'g_fi.type',
+      'fi.id',
+      'fi.name',
+      'fi.size',
+      'fi.mime'
     ])
-    .getMany();
-    // const VoiceAndFile = await this.voiceRepository
-    // .createQueryBuilder('v')
-    // .innerJoin('v.game', 'g')
-    // .innerJoin('v.file', 'fi')
-    // .select([
-    //   'v.id',
-    //   'v.game_id',
-    //   'v.file_id',
-    //   'v.type',
-    //   'g.id',
-    //   'fi.id',
-    //   'fi.name',
-    //   'fi.size',
-    //   'fi.mime'
-    // ])
-    // .where('v.game_id = g.id')
-    // .andWhere('v.file_id = fi.id')
-    // .getMany();
+    .where('f.name = :category', {category: category})
+    .getMany(); 
 
-    db.push(GameAndFieldAndVoice);
-    // db.push(VoiceAndFile);
-
-    return db;
+    return result;
   }
+
+  async findGameByCategoryAndId(category:string, id:number){
+    let result = await this.gameRepository
+    .createQueryBuilder('g')
+    .leftJoinAndSelect('g.field', 'f')
+    .leftJoinAndSelect('g.game_file', 'g_fi')
+    .leftJoinAndSelect('g_fi.file_id', 'fi')
+    .select([
+      'g.id',
+      'g.name',
+      'g.context',
+      'g.level',
+      'f.id',
+      'f.name',
+      'g_fi.type',
+      'fi.id',
+      'fi.name',
+      'fi.size',
+      'fi.mime'
+    ])
+    .where('f.name = :category', {category: category})
+    .andWhere('g.id = :id', {id: id})
+    .getMany(); 
+    return result;
+  }
+
 }
