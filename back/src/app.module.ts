@@ -10,7 +10,7 @@ import { HelpersModule } from './helpers/helpers.module';
     host: 'localhost',
     port: 3306,
     username: 'root',
-    password: 'alswl0312',
+    password: '1234',
     database: 'scg',
     autoLoadEntities: true,
     synchronize: true,
