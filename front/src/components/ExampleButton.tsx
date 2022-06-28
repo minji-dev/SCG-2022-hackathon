@@ -1,7 +1,9 @@
-import { Props } from "types/types";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { Props } from "types/types";
+import useApi from "hooks/useApi"
+import { Game } from "types/api";
 function ExampleButton({ id }: Props) {
+  const game = useApi<Game>(`games/${id}`);
   return (
     <div style={{ display: "flex", justifyContent: "center" }}>
       <Link href="/">

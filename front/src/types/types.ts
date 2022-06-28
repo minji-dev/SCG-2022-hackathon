@@ -1,8 +1,8 @@
 export interface Props {
-  title?: String;
-  width?: Number;
-  height?: Number;
-  name?: String;
+  title?: string;
+  width?: number;
+  height?: number;
+  name?: string;
   id?: number;
-  difficulty?: number;
+  level?: number;
 }

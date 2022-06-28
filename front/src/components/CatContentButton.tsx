@@ -1,16 +1,22 @@
 import { Props } from "types/types";
 import useApi from "hooks/useApi";
-import { User } from "types/api";
+import { Game } from "types/api";
 import Link from "next/link";
 
-function CatContentButton({ height, width, name, id }: Props) {
-  const field = useApi<User>(`users/${id}`);
+function CatContentButton({ height, width, id }: Props) {
+  const games = useApi<Game[]>(`games`);
   return (
     <Link href={`/categories/${id}`}>
       <div>
         <a>
-          <h1>{field?.last_name}</h1>
+          <h1>{games?.at(0)?.name}</h1>
           <hr />
+          {/* <Image
+          src={ game?.avatar ? `${game?.avatar}` : '/'}
+          alt={`${game?.last_name}`}
+          width={128}
+          height={128}
+          /> */}
         </a>
         <style jsx>{`
           @import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);

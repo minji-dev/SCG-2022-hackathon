@@ -8,7 +8,7 @@ function useApi<T>(endpoint: string) {
     async function fetchData() {
       try {
         const res = await axios.get<ApiResponse<T>>(
-          `https://reqres.in/api/${endpoint}`
+          `localhost:3000/api/${endpoint}`
         );
         setData(res.data.data);
       } catch (err) {

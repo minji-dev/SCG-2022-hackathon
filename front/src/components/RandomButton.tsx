@@ -1,7 +1,4 @@
-import { Props } from "types/types";
 import Link from "next/link";
-import useApi from "hooks/useApi";
-import { User } from "types/api";
 function RandomButton() {
   return (
     <div style={{ display: "flex", justifyContent: "center" }}>

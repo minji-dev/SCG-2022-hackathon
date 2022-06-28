@@ -1,34 +1,34 @@
 import { Props } from "types/types";
 import Link from "next/link";
 import useApi from "hooks/useApi";
-import { User } from "types/api";
+import { Game } from "types/api";
 import Image from "next/image";
-import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
-function GameButton({ height, width, id, difficulty }: Props) {
-  const game = useApi<User>(`users/${id}`);
-  console.log(game);
-  let arr = []
-  difficulty = 3;
-  for( let i = 0; i < difficulty; i++ ) {
-    arr.push(<img src="/Soju.png" alt="a" style={ {height: "40px", transform: "rotate(25deg)", marginRight: "-3px"} }/>);
+function GameButton({height, width, id}: Props) {
+  const game = useApi<Game>(`games/${id}`);
+  const arr : JSX.Element[]= []
+  const level = game?.level || 0
+  if (typeof level !== "undefined") {
+    // for( let i = 0; i < level; i++ ) {
+    //   arr.push(<Image src="/Soju.png" alt="a" style={ {height: "40px", transform: "rotate(25deg)", marginRight: "-3px"} }/>);
+    // }
   }
   return (
     <Link href={`/details/${id}`}>
-      <div>
-        <h1>{game?.last_name}</h1>
+      <div className="a">
+        <h1>{game?.name}</h1>
         <hr />
-        <Image
-          src={ game?.avatar ? `${game?.avatar}` : '/'}
-          alt={`${game?.last_name}`}
+        {/* <Image
+          src={ game?.game_file ? `${game?.game_file}` : '/soju.png'}    게임 상징 이미지 받기 위한 url?
+          alt={`${game?.name}`}
           width={128}
           height={128}
-        />
+        /> */}
         <hr />
-        <p>
+        <div>
           <h2>난이도:</h2>
           {arr}
-        </p>
+        </div>
         <style jsx>{`
           @import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);
           h1 {
@@ -39,17 +39,17 @@ function GameButton({ height, width, id, difficulty }: Props) {
             font-size: 26px;
             margin: 10px;
           }
-          div {
-            box-sizing: border-box;
-            width: ${width}px;
-            height: ${height}px;
-            margin: 10px;
-            background: #ffffff;
-            border: 3px solid #333d79;
-            border-radius: 20px;
-            float: left;
-            padding: 0px;
-          }
+          .a{
+          box-sizing: border-box;
+          width: ${width}px;
+          height: ${height}px;
+          margin: 10px;
+          background: #ffffff;
+          border: 3px solid #333d79;
+          border-radius: 20px;
+          float: left;
+          padding: 0px;
+        }
           hr {
             background-color: #333d79;
             height: 3px;

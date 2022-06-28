@@ -2,25 +2,24 @@ import type { NextPage } from "next";
 import PageHead from "components/PageHead";
 import useApi from "hooks/useApi";
 import { useRouter } from "next/router";
-import { User } from "types/api";
+import { Game } from "types/api";
 import GameButton from "components/GameButton";
 
 const Category: NextPage = () => {
   const router = useRouter();
   const { id } = router.query;
-  const game = useApi<User>(`users/${id}`);
-  const games = useApi<User[]>(`users?per_page=${id}`);
+  const games = useApi<Game[]>(`games?field=${id}`);
 
   return (
     <div>
-      <PageHead title={game?.first_name} />
-      <h1>{game?.last_name}</h1>
-      <div style={{ display: "grid", gridTemplateColumns: "auto auto auto" }}>
+      <PageHead title={games?.at(0)?.field.name} />
+      <h1>{games?.at(0)?.field.name}</h1>
+      <div style={{ display: "grid"}}>
         <div>
-          {games?.map((gameeach) => (
+          {games?.map((game) => (
               <GameButton
-                key={gameeach.id}
-                id={gameeach.id}
+                key={game.id}
+                id={game.id}
                 width={200}
                 height={300}
               />

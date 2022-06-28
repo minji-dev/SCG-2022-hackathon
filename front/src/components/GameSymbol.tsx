@@ -1,14 +1,27 @@
 import { Props } from "types/types";
-import Link from "next/link";
 import useApi from "hooks/useApi";
-import { User } from "types/api";
+import { Game } from "types/api";
+import Image from "next/image";
 
-function GameSymbol({ height, width, name, id }: Props) {
-  const game = useApi<User>(`users/${id}`);
+function GameSymbol({ height, width, id }: Props) {
+  const game = useApi<Game>(`games/${id}`);
+  const arr : JSX.Element[]= []
+  const level = game?.level || 0
+  if (typeof level !== "undefined") {
+    // for( let i = 0; i < level; i++ ) {
+    //   arr.push(<Image src="/Soju.png" alt="a" style={ {height: "40px", transform: "rotate(25deg)", marginRight: "-3px"} }/>);
+    // }
+  }
   return (
-    <div>
-      <h1>{game?.last_name}</h1>
+    <div className="a">
+      <h1>{game?.name}</h1>
+      <hr/>
+      {/* <Image src="/" alt={game?.name} height={200}  width={200} /> */}   
       <hr />
+        <div>
+          <h2>난이도:</h2>
+          {arr}
+        </div>
       <style jsx>{`
         @import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);
         h1 {
@@ -19,7 +32,7 @@ function GameSymbol({ height, width, name, id }: Props) {
           font-size: 26px;
           margin: 10px;
         }
-        div {
+        .a{
           box-sizing: border-box;
           width: ${width}px;
           height: ${height}px;

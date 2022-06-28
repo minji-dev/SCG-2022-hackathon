@@ -5,21 +5,16 @@ export interface ApiResponse<T> {
 export interface Game {
   id: number;
   name: string;
+  intro: string;
   context: string;
   level: number;
-  field: number;
+  field: Field;
+  game_file : object[];
 }
 
 export interface Field {
   id: number;
   name: string;
-}
-
-export interface File {
-  id: number;
-  name: string;
-  size: number;
-  mime: string;
 }
 
 export interface Voice {

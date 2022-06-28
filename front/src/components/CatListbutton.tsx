@@ -2,23 +2,19 @@ import { Props } from "types/types";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import useApi from "hooks/useApi";
-import { User } from "types/api";
+import { Game } from "types/api";
 function CatListButton({ id }: Props) {
   const router = useRouter();
-  const game = useApi<User>(`users/${id}`);
+  const game = useApi<Game>(`games/${id}`);
   return (
     <div style={{ display: "flex", justifyContent: "center" }}>
-      <Link href={`/categories/${game?.id}`}>
+      <Link href={`/categories/${game?.field.id}`}>
         <button
           style={{
-            margin: "10px auto",
-            visibility:
-              router.pathname !== "/" && router.pathname !== "/404"
-                ? "visible"
-                : "hidden",
+            margin: "10px auto"
           }}
         >
-          {game?.first_name}
+          {game?.field.name}
         </button>
       </Link>
       <style jsx>{`

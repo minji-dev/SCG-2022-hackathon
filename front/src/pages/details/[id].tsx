@@ -2,18 +2,18 @@ import type { NextPage } from "next";
 import PageHead from "components/PageHead";
 import useApi from "hooks/useApi";
 import { useRouter } from "next/router";
-import { User } from "types/api";
+import { Game } from "types/api";
 import ExampleButton from "components/ExampleButton";
 import CatListButton from "components/CatListbutton";
 
 const Detail: NextPage = () => {
   const router = useRouter();
   const { id } = router.query;
-  const game = useApi<User>(`users/${id}`);
-  //console.log(game)
+  const game = useApi<Game>(`games/${id}`);
+
   return (
     <div>
-      <PageHead title={game?.first_name} />
+      <PageHead title={game?.name}/>
       <h1
         style={{
           textAlign: "center",
@@ -22,7 +22,7 @@ const Detail: NextPage = () => {
           margin: "10px auto",
         }}
       >
-        {game?.last_name}
+        {game?.name}
       </h1>
       <div>
         <div
@@ -34,9 +34,9 @@ const Detail: NextPage = () => {
         >
           <h2>인트로</h2>
           <hr />
-          <p>{game?.email}</p>
+          <p>{game?.intro}</p>
         </div>
-        <ExampleButton id={game?.id} />
+        <ExampleButton id={Number(id)}/>
         <div
           style={{
             width: "1181px",
@@ -46,10 +46,10 @@ const Detail: NextPage = () => {
         >
           <h2>규칙</h2>
           <hr />
-          <p>{game?.avatar}</p>
+          <p>{game?.context}</p>
         </div>
       </div>
-      <CatListButton id={game?.id} />
+      <CatListButton id={Number(id)} />
       <style jsx>{`
         @import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);
         h1 {

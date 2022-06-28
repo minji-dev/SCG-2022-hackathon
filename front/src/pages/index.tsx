@@ -1,15 +1,9 @@
 import type { NextPage } from "next";
 import PageHead from "components/PageHead";
 import CatContentButton from "components/CatContentButton";
-import { useRouter } from "next/router";
-import useApi from "hooks/useApi";
-import { User } from "types/api";
 import RandomButton from "components/RandomButton";
-import Link from "next/link";
 
 const Home: NextPage = () => {
-  const fields = useApi<User[]>(`users?per_page=12`);
-  console.log(fields?.at(0)?.last_name);
   return (
     <div>
       <PageHead title="메인 화면" />
