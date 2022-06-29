@@ -9,7 +9,7 @@ import RandomButton from "components/RandomButton";
 const RandomGame: NextPage = () => {
   const router = useRouter();
   const { id } = router.query;
-  const games = useApi<Game[]>(`users/${id}`);
+  const games = useApi<Game[]>(`games/${id}`);
   return (
     <div>
       <PageHead title="RandomGame" />
