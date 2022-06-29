@@ -5,6 +5,8 @@ import { HelpersModule } from './helpers/helpers.module';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { File } from './entities/file.entity';
+import { Field } from './entities/field.entity';
+import { Field_File } from './entities/field_file.entity';
 
 @Module({
   imports: [
@@ -22,7 +24,7 @@ import { File } from './entities/file.entity';
     autoLoadEntities: true,
     synchronize: true,
     logging: true,
-  }), TypeOrmModule.forFeature([File]),GameModule, HelpersModule],
+  }), TypeOrmModule.forFeature([File,Field,Field_File]),GameModule, HelpersModule],
   controllers: [AppController],
   providers: [AppService],
 })
