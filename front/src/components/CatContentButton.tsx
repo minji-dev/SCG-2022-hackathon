@@ -1,15 +1,14 @@
 import { Props } from "types/types";
 import useApi from "hooks/useApi";
-import { Game } from "types/api";
+import { Game, Field } from "types/api";
 import Link from "next/link";
 
 function CatContentButton({ height, width, id }: Props) {
-  const games = useApi<Game[]>(`games`);
+  const games = useApi<Game[]>(`games?field=${id}`);
   return (
     <Link href={`/categories/${id}`}>
       <div>
-        <a>
-          <h1>{games?.at(0)?.name}</h1>
+          <h1>{games?.at(0)?.field.name}</h1>
           <hr />
           {/* <Image
           src={ game?.avatar ? `${game?.avatar}` : '/'}
@@ -17,7 +16,6 @@ function CatContentButton({ height, width, id }: Props) {
           width={128}
           height={128}
           /> */}
-        </a>
         <style jsx>{`
           h1 {
             color: #333d79;
