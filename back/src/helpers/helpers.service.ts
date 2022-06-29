@@ -25,7 +25,7 @@ export class HelpersService {
             'g.id', 'g.name',
             'f.id', 'f.name',
             'g_fi.id', 'g_fi.type',
-            'fi.id', 'fi.name', 'fi.size', 'fi.mime',
+            'fi.id', 'fi.name', 'fi.mime', 'fi.location',
         ])
         .where("g.name = :name", { name: helpers[0] })
         .getMany();
@@ -38,7 +38,7 @@ export class HelpersService {
             'g.id', 'g.name',
             'f.id', 'f.name',
             'g_fi.id', 'g_fi.type',
-            'fi.id', 'fi.name', 'fi.size', 'fi.mime',
+            'fi.id', 'fi.name', 'fi.mime', 'fi.location',
         ])
         .where("g.name = :name", { name: helpers[1] })
         .getMany();
@@ -51,7 +51,7 @@ export class HelpersService {
             'g.id', 'g.name',
             'f.id', 'f.name',
             'g_fi.id', 'g_fi.type',
-            'fi.id', 'fi.name', 'fi.size', 'fi.mime',
+            'fi.id', 'fi.name', 'fi.mime', 'fi.location',
         ])
         .where("g.name = :name", { name: helpers[2] })
         .getMany();
@@ -92,7 +92,7 @@ export class HelpersService {
                 'g.id', 'g.name', 'g.context', 'g.level',
                 'f.id', 'f.name',
                 'g_fi.type',
-                'fi.id', 'fi.name', 'fi.size', 'fi.mime',
+                'fi.id', 'fi.name', 'fi.mime', 'fi.location',
             ])
             .where("g.id = :id", { id: random })
             .getMany();
