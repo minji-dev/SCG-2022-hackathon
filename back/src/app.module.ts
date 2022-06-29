@@ -13,7 +13,7 @@ import { File } from './entities/file.entity';
     host: 'localhost',
     port: 3306,
     username: 'root',
-    password: 'vingsu1a@',
+    password: '1234',
     database: 'scg',
     autoLoadEntities: true,
     synchronize: true,
