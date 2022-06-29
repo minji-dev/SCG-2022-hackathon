@@ -13,38 +13,22 @@ const RandomGame: NextPage = () => {
   return (
     <div>
       <PageHead title="RandomGame" />
-      <h2
-        style={{
-          textAlign: "center",
-          justifyContent: "center",
-          margin: "20px auto",
-          fontSize: "34px"
-        }}
-      >
+      <h2 className="justify-center m-auto text-3xl text-center">
         잼민이가 좋아하는 랜덤~게임! 아 무슨~게임! 게임 스타트!
       </h2>
-      <div
-        style={{
-          height: "265px",
-          width: "911px",
-          textAlign: "center",
-          justifyContent: "center",
-          margin: "30px auto",
-        }}
-      >
+      <div className="flex flex-row justify-center w-3/4 h-64 mx-auto my-6 text-center">
         <GameSymbol height={265} width={200} id={games?.at(0)?.id} />
-        <div>
-          <h3 style={{fontSize: "40px", marginBottom: "-20px"}}>❝</h3>
-          <h3 style={{ fontSize: "25px" }}>{games?.at(0)?.intro}</h3>
-          <h3 style={{fontSize: "40px"}}>❞</h3>
+        <div className="my-20">
+          <h3 className="-mb-1 text-4xl">❝</h3>
+          <span className="m-auto text-2xl text-center font-bold text-[#333d79] ">{games?.at(0)?.intro}</span>
+          <h3 className="mt-3 text-4xl">❞</h3>
         </div>
       </div>
-      <div
-        style={{ width: "1181px", justifyContent: "center", margin: "0 auto" }}
-      >
-        <h2 style={{ fontSize: "32px", fontWeight: "700" }}>규칙</h2>
-        <hr style={{ marginTop: "5px", marginBottom: "5px", height: "2px" }}/>
-        <p style={{ fontSize: "20px", fontWeight: "550" }}>{games?.at(0)?.context}</p>
+      <div className="justify-center w-10/12 mx-auto mt-16 mb-6">
+        <h2 className="text-4xl font-bold border-b-[3px] border-[#333d79] pb-2">규칙</h2>
+        <p className="pt-2 text-xl font-semibold">
+          {games?.at(0)?.context}
+        </p>
       </div>
       <div style={{ display: "flex", justifyContent: "center" }}>
         <RandomButton />

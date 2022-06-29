@@ -1,8 +1,11 @@
 import Link from "next/link";
+import useApi from "hooks/useApi";
+import { Game } from "types/api";
 function RandomButton() {
+  const helpers = useApi<Game[]>("helpers/3");
   return (
     <div style={{ display: "flex", justifyContent: "center" }}>
-      <Link href="/">
+      <Link href={`/randomgames/${helpers}`}>
         <button style={{ margin: "10px auto" }}>랜덤~~~~게임</button>
       </Link>
       <style jsx>{`

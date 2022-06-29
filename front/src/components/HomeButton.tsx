@@ -6,7 +6,7 @@ function HomeButton() {
   return (
     <div style={{ display: "flex", justifyContent: "center" }}>
       <Link href="/">
-        <img src="/Logo.png" style={{ margin: "10px auto" }}/>
+        <img src="/Logo.png" style={{ margin: "10px auto" }} />
       </Link>
       <style jsx>{`
         @import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);
