@@ -34,6 +34,7 @@ const Helper: NextPage = () => {
           이전으로
         </button></div>
       </Link>
+
       <style jsx>{`
         @import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);
         h1 {

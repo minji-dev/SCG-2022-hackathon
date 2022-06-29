@@ -12,6 +12,7 @@ const Detail: NextPage = () => {
   const { id } = router.query;
   const games = useApi<Game[]>(`games/${id}`);
   console.log(games)
+  const str = games?.at(0)?.context;
   return (
     <div>
       <PageHead title={games?.at(0)?.name}/>
@@ -49,10 +50,10 @@ const Detail: NextPage = () => {
         >
           <p style={{ fontSize: "32px", fontWeight: "700" }}>규칙</p>
           <hr style={{ marginTop: "5px", marginBottom: "5px", height: "2px" }}/>
-          <p style={{ fontSize: "20px", fontWeight: "550" }}>{games?.at(0)?.context}</p>
+          <textarea>{str}</textarea>
           <CatListButton id={Number(id)} />
-          <Link href={`/details/edit/${id}`}>
-            <button className="EditButton">수정</button>
+          <Link href={`/details/${id}`}>
+          <button className="EditButton">저장</button>
           </Link>
         </div>
         
@@ -91,6 +92,13 @@ const Detail: NextPage = () => {
           text-align: center;
           border-radius: 20px;
           font-size: 18px;
+        }
+        textarea {
+          font-size: 20px;
+          font-weight: 550;
+          width: 100%;
+          color: #333d79;
+          font-family: "NanumSquare", sans-serif;
         }
       `}</style>
     </div>
