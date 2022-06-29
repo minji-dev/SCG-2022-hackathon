@@ -19,6 +19,7 @@ export class GameService {
     .select([
       'g.id',
       'g.name',
+      'g.intro',
       'g.context',
       'g.level',
       'f.id',
@@ -26,8 +27,8 @@ export class GameService {
       'g_fi.type',
       'fi.id',
       'fi.name',
-      'fi.size',
-      'fi.mime'
+      'fi.mime',
+      'fi.location'
     ])
     .where('f.id = :field', { field: field })
     .getMany(); 
@@ -44,6 +45,7 @@ export class GameService {
     .select([
       'g.id',
       'g.name',
+      'g.intro',
       'g.context',
       'g.level',
       'f.id',
@@ -51,8 +53,8 @@ export class GameService {
       'g_fi.type',
       'fi.id',
       'fi.name',
-      'fi.size',
-      'fi.mime'
+      'fi.mime',
+      'fi.location'
     ])
     .where('g.id = :id', { id: id })
     .getMany(); 

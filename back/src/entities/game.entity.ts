@@ -14,7 +14,10 @@ export class Game {
     context: string; //설명
 
     @Column()
-    level: number;
+    level: number; //난이도
+
+    @Column()
+    intro: string; //인트로
 
     //Foreign key 설정하기
     @ManyToOne( () => Field, (field)=>field.game )

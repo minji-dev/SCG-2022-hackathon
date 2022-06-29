@@ -11,11 +11,11 @@ export class File{
     @Column("text")
     name: string; //파일명
 
-    @Column()
-    size: number; //파일크기
-
     @Column("varchar", {length:50})
-    mime: string;
+    mime: string; //mime
+
+    @Column("text")
+    location: string //파일경로
 
     @OneToMany( () => Game_File, (game_file)=>game_file.file_id )
     game_file: Game_File[];
