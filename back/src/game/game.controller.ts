@@ -15,4 +15,9 @@ export class GameController {
   findGameById(@Param('id') id: number){
     return this.gameService.findGameById(id);
   }
+
+  @Delete('/:id')
+  Remove(@Param('id') id:number){
+    return this.gameService.remove(id);
+  }
 }
