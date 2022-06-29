@@ -18,6 +18,7 @@ const RandomGame: NextPage = () => {
           textAlign: "center",
           justifyContent: "center",
           margin: "20px auto",
+          fontSize: "34px"
         }}
       >
         잼민이가 좋아하는 랜덤~게임! 아 무슨~게임! 게임 스타트!
@@ -32,14 +33,18 @@ const RandomGame: NextPage = () => {
         }}
       >
         <GameSymbol height={265} width={200} id={games?.at(0)?.id} />
-        <h3>{games?.at(0)?.intro}</h3>
+        <div>
+          <h3 style={{fontSize: "40px", marginBottom: "-20px"}}>❝</h3>
+          <h3 style={{ fontSize: "25px" }}>{games?.at(0)?.intro}</h3>
+          <h3 style={{fontSize: "40px"}}>❞</h3>
+        </div>
       </div>
       <div
         style={{ width: "1181px", justifyContent: "center", margin: "0 auto" }}
       >
-        <h2>규칙</h2>
-        <hr />
-        <p>{games?.at(0)?.context}</p>
+        <h2 style={{ fontSize: "32px", fontWeight: "700" }}>규칙</h2>
+        <hr style={{ marginTop: "5px", marginBottom: "5px", height: "2px" }}/>
+        <p style={{ fontSize: "20px", fontWeight: "550" }}>{games?.at(0)?.context}</p>
       </div>
       <div style={{ display: "flex", justifyContent: "center" }}>
         <RandomButton />

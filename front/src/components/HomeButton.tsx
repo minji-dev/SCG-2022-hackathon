@@ -6,17 +6,7 @@ function HomeButton() {
   return (
     <div style={{ display: "flex", justifyContent: "center" }}>
       <Link href="/">
-        <button
-          style={{
-            margin: "10px auto",
-            visibility:
-              router.pathname !== "/" && router.pathname !== "/404"
-                ? "visible"
-                : "hidden",
-          }}
-        >
-          홈으로
-        </button>
+        <img src="/Logo.png" style={{ margin: "10px auto" }}/>
       </Link>
       <style jsx>{`
         @import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);

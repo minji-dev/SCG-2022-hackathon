@@ -13,7 +13,7 @@ const Category: NextPage = () => {
   return (
     <div>
       <PageHead title={games?.at(0)?.field.name} />
-      <h1>{games?.at(0)?.field.name}</h1>
+      <h1 style={{ margin: '10px auto', width: '15%', borderBottom: '3px solid', borderTop: '3px solid', fontWeight: "800", fontSize: "50px" }}>{games?.at(0)?.field.name}</h1>
       <div style={{ display: "grid"}}>
         <div>
           {games?.map((game) => (

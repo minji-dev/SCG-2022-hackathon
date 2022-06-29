@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import useApi from "hooks/useApi";
 import { Game } from "types/api";
+import { text } from "stream/consumers";
 function CatListButton({ id }: Props) {
   const router = useRouter();
   const games = useApi<Game[]>(`games/${id}`);
@@ -11,10 +12,12 @@ function CatListButton({ id }: Props) {
       <Link href={`/categories/${games?.at(0)?.field.id}`}>
         <button
           style={{
-            margin: "10px auto"
+            margin: "10px auto",
+            textAlign: "center",
+            padding: "0px"
           }}
         >
-          {games?.at(0)?.field.name}
+          이전으로
         </button>
       </Link>
       <style jsx>{`

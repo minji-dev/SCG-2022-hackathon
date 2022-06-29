@@ -6,8 +6,7 @@ import HelpersPageButton from "components/HelpersPageButton";
 const Home: NextPage = () => {
   return (
     <div>
-      <PageHead title="메인 화면"/>
-      <h1> 술 게임 가이드북 </h1>
+      <PageHead title="메인 화면" />
       <div style={{ display: "flex", justifyContent: "center" }}>
         <CatContentButton height={250} width={350} id={1} />
         <CatContentButton height={250} width={350} id={2} />
