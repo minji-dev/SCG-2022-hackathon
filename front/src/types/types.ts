@@ -1,4 +1,5 @@
 export interface Props {
+  className?: string;
   title?: string;
   width?: number;
   height?: number;

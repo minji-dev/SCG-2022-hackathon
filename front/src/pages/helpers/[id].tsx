@@ -2,8 +2,11 @@ import type { NextPage } from "next";
 import PageHead from "components/PageHead";
 import CatContentButton from "components/CatContentButton";
 import RandomButton from "components/RandomButton";
+import { useRouter } from "next/router";
 
 const Helper: NextPage = () => {
+  const router = useRouter();
+  const { id } = router.query;
   return (
     <div>
       <style jsx>{`

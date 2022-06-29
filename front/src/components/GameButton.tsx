@@ -10,7 +10,7 @@ function GameButton({height, width, id}: Props) {
   const level = games?.at(0)?.level || 0
   if (typeof level !== "undefined") {
     for( let i = 0; i < level; i++ ) {
-      arr.push(<img src="/Soju.png" alt="a" style={ {height: "40px", transform: "rotate(25deg)", marginRight: "-3px"} }/>);
+      arr.push(<img src="/img/소주병.png" alt="a" style={ {height: "40px", transform: "rotate(25deg)", marginRight: "-3px"} }/>);
     }
   }
   return (

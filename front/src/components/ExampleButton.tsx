@@ -4,6 +4,7 @@ import useApi from "hooks/useApi"
 import { Game } from "types/api";
 function ExampleButton({ id }: Props) {
   const games = useApi<Game[]>(`games/${id}`);
+  const audio = new Audio("/");
   return (
     <div style={{ display: "flex", justifyContent: "center" }}>
       <Link href="/">

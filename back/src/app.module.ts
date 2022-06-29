@@ -12,7 +12,7 @@ import { AppService } from './app.service';
     host: 'localhost',
     port: 3306,
     username: 'root',
-    password: 'vingsu1a@',
+    password: 'hoon1130',
     database: 'scg',
     autoLoadEntities: true,
     synchronize: true,

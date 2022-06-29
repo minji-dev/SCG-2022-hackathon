@@ -20,7 +20,7 @@ function CatListButton({ id }: Props) {
           이전으로
         </button>
       </Link>
-      <style jsx>{`
+      {/* <style jsx>{`
         button {
           height: 50px;
           width: 180px;
@@ -34,7 +34,7 @@ function CatListButton({ id }: Props) {
           font-size: 22px;
           font-weight: 500;
         }
-      `}</style>
+      `}</style> */}
     </div>
   );
 }

@@ -5,9 +5,7 @@ function PageHead({ title }: Props) {
   return (
     <Head>
       <title>
-        <div>
           {title} | 술 게임 가이드북
-        </div>
       </title>
     </Head>
   );
