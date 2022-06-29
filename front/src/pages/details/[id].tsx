@@ -18,9 +18,11 @@ const Detail: NextPage = () => {
       <h1
         style={{
           textAlign: "center",
-          width: "304px",
+          width: "auto",
           justifyContent: "center",
           margin: "10px auto",
+          fontWeight: "800",
+          fontSize: "50px"
         }}
       >
         {games?.at(0)?.name}
@@ -33,9 +35,9 @@ const Detail: NextPage = () => {
             margin: "0 auto",
           }}
         >
-          <h2>인트로</h2>
-          <hr />
-          <p>{games?.at(0)?.intro}</p>
+          <p style={{ fontSize: "32px", fontWeight: "700" }}>인트로</p>
+          <hr style={{ marginTop: "5px", marginBottom: "5px", height: "2px" }}/>
+          <p style={{ fontSize: "20px", fontWeight: "550" }}>{games?.at(0)?.intro}</p>
         </div>
         <ExampleButton id={Number(id)}/>
         <div
@@ -45,9 +47,9 @@ const Detail: NextPage = () => {
             margin: "0 auto",
           }}
         >
-          <h2>규칙</h2>
-          <hr />
-          <p>{games?.at(0)?.context}</p>
+          <p style={{ fontSize: "32px", fontWeight: "700" }}>규칙</p>
+          <hr style={{ marginTop: "5px", marginBottom: "5px", height: "2px" }}/>
+          <p style={{ fontSize: "20px", fontWeight: "550" }}>{games?.at(0)?.context}</p>
         </div>
       </div>
       <CatListButton id={Number(id)} />
