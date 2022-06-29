@@ -2,18 +2,19 @@ import type { NextPage } from "next";
 import PageHead from "components/PageHead";
 import CatContentButton from "components/CatContentButton";
 import RandomButton from "components/RandomButton";
+import HelperButton from "components/HelperButton";
 
-const Helper: NextPage = () => {
+const HelperMain: NextPage = () => {
   return (
     <div>
-      <PageHead title="메인 화면" />
-      <h1> 술 게임 가이드북 </h1>
+      <PageHead title="도우미" />
+      <h1> 술 게임 도우미 </h1>
       <div style={{ display: "flex", justifyContent: "center" }}>
-        <CatContentButton height={250} width={350} id={1} />
-        <CatContentButton height={250} width={350} id={2} />
+        <HelperButton height={250} width={350} id={1} />
+        <HelperButton height={250} width={350} id={2} />
       </div>
       <div style={{ display: "flex", justifyContent: "center" }}>
-        <CatContentButton height={250} width={725} id={3} />
+        <HelperButton height={250} width={725} id={3} />
       </div>
       <div>
         <RandomButton />
@@ -33,4 +34,4 @@ const Helper: NextPage = () => {
   );
 };
 
-export default Helper;
+export default HelperMain;
