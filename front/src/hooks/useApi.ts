@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { ApiResponse } from "types/api";
 
 function useApi<T>(endpoint: string) {
   const [data, setData] = useState<T | null>(null);

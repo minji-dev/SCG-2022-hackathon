@@ -18,7 +18,6 @@ function CatListButton({ id }: Props) {
         </button>
       </Link>
       <style jsx>{`
-        @import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);
         button {
           height: 50px;
           width: 180px;
