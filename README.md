@@ -26,6 +26,8 @@ $ npm install
 ```
 ### 3-1. Start development server
 
+front / back 각각 서버 실행
+
 ```bash
 # development
 $ npm run start
@@ -39,7 +41,7 @@ $ npm run start:prod
 
 
 서버 시작 후, 
-[`http://localhost:3001`](http://localhost:3001) 에 접속
+[`http://localhost:3000`](http://localhost:3000) 에 접속
 
 <br>
 
