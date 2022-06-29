@@ -19,12 +19,17 @@ export class GameController {
   }
 
   @Patch('/:id')
-  async updateGame(@Param('id') id: number, @Body() game: UpdateGameDto) {
+  async updateGame(@Param('id') id: number, @Body() game: UpdateGameDto){
     await this.gameService.updateGame(id, game);
     return Object.assign({
       data: { ...game },
       statusCode: 200,
       statusMsg: 'updated successfully',
     });
+  }
+
+  @Delete('/:id')
+  async removeGame(@Param('id') id: number){
+    return this.gameService.removeGame(id);
   }
 }

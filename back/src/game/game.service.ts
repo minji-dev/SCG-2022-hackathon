@@ -3,12 +3,20 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Game } from '../entities/game.entity';
 import { Repository } from 'typeorm';
 import { UpdateGameDto } from './dto/update-game.dto';
+import { Game_File } from 'src/entities/game_file.entity';
+import { Field } from 'src/entities/field.entity';
+import { Field_File } from 'src/entities/field_file.entity';
+import { File } from 'src/entities/file.entity';
 
 
 @Injectable()
 export class GameService {
   constructor(
     @InjectRepository(Game) private gameRepository: Repository<Game>,
+    @InjectRepository(Game_File) private gamefileRepository: Repository<Game_File>,
+    @InjectRepository(Field) private fieldRepository: Repository<Field>,
+    @InjectRepository(Field_File) private fieldfileRepository: Repository<Field_File>,
+    @InjectRepository(File) private fileRepository: Repository<File>,
     ){}
   
   async findGamesByField(field: number){
@@ -67,5 +75,9 @@ export class GameService {
       id,
       game
     );
+  }
+
+  async removeGame(id: number){
+
   }
 }
