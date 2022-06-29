@@ -19,7 +19,6 @@ function CatContentButton({ height, width, id }: Props) {
           /> */}
         </a>
         <style jsx>{`
-          @import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);
           h1 {
             color: #333d79;
             text-align: center;

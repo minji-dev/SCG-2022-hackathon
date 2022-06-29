@@ -8,9 +8,9 @@ function GameSymbol({ height, width, id }: Props) {
   const arr : JSX.Element[]= []
   const level = games?.at(0)?.level || 0
   if (typeof level !== "undefined") {
-    // for( let i = 0; i < level; i++ ) {
-    //   arr.push(<Image src="/Soju.png" alt="a" style={ {height: "40px", transform: "rotate(25deg)", marginRight: "-3px"} }/>);
-    // }
+    for( let i = 0; i < level; i++ ) {
+      arr.push(<img src="/Soju.png" alt="a" style={ {height: "40px", transform: "rotate(25deg)", marginRight: "-3px"} }/>);
+    }
   }
   return (
     <div className="a">
