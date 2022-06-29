@@ -6,9 +6,9 @@ function useApi<T>(endpoint: string) {
   const [data, setData] = useState<T | null>(null);
   useEffect(() => {
     async function fetchData() {
-      try {
+     try {
         const res = await axios.get<ApiResponse<T>>(
-          `localhost:3000/api/${endpoint}`
+          `http://localhost:3000/api/${endpoint}`
         );
         setData(res.data.data);
       } catch (err) {

@@ -9,7 +9,7 @@ export interface Game {
   context: string;
   level: number;
   field: Field;
-  game_file : object[];
+  game_file : GameFile[];
 }
 
 export interface Field {
@@ -17,17 +17,14 @@ export interface Field {
   name: string;
 }
 
-export interface Voice {
-  id: number;
-  game_id: number;
-  file_id: number;
-  type: string;
+export interface GameFile{
+  type : string;
+  file_id : FileId;
 }
 
-export interface User {
+export interface FileId {
   id: number;
-  email: string;
-  first_name: string;
-  last_name: string;
-  avatar: string;
+  name: string;
+  mime: string;
+  location: string;
 }

@@ -9,7 +9,8 @@ import CatListButton from "components/CatListbutton";
 const Detail: NextPage = () => {
   const router = useRouter();
   const { id } = router.query;
-  const game = useApi<Game>(`games/${id}`);
+  const game = useApi<Game>(`games/6`);
+  console.log(game)
 
   return (
     <div>
