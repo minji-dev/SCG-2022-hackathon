@@ -5,9 +5,9 @@ export interface ApiResponse<T> {
 export interface Game {
   id: number;
   name: string;
-  intro: string;
-  context: string;
-  level: number;
+  intro?: string;
+  context?: string;
+  level?: number;
   field: Field;
   game_file: GameFile[];
 }

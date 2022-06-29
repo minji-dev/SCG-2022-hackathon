@@ -4,8 +4,8 @@ import useApi from "hooks/useApi";
 import { useRouter } from "next/router";
 import { Game } from "types/api";
 import ExampleButton from "components/ExampleButton";
-import CatListButton from "components/Backbutton";
 import BackButton from "components/Backbutton";
+import Link from "next/link";
 
 const Detail: NextPage = () => {
   const router = useRouter();
@@ -41,15 +41,15 @@ const Detail: NextPage = () => {
             margin: "0 auto",
           }}
         >
-          <p className="text-left border-b-[3px] p-2 border-[#333d79] text-[#333d79] font-bold text-3xl">
-            규칙
-          </p>
-          <p className="text-xl font-[550] p-2 text-left">
-            {games?.at(0)?.context}
-          </p>
+          <p style={{ fontSize: "32px", fontWeight: "700" }}>규칙</p>
+          <hr style={{ marginTop: "5px", marginBottom: "5px", height: "2px" }}/>
+          <p style={{ fontSize: "20px", fontWeight: "550" }}>{games?.at(0)?.context}</p>
+          <BackButton/>
+          <Link href={`/details/edit/${id}`}>
+            <button className="EditButton">수정</button>
+          </Link>
         </div>
       </div>
-      <BackButton/>
     </div>
   );
 };

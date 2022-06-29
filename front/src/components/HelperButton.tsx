@@ -11,7 +11,7 @@ function HelperButton({ className, id, width, height }: Props) {
   <div className={className}>
     <Link href={`/categories/${id}`}>
       <div>
-        <h1 className="border-b-[3px] border-[#333d79] h-8">
+        <h1 className="border-b-[3px] border-[#333d79]">
           {helpers?.at(Number(id)-1)?.at(0)?.name} 도우미!
         </h1>
         <Image

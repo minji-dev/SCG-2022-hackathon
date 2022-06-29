@@ -1,5 +1,7 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete, Query } from '@nestjs/common';
 import { GameService } from './game.service';
+import { CreateGameDto } from "./dto/create-game.dto";
+import { UpdateGameDto } from "./dto/update-game.dto";
 
 
 @Controller('games')
@@ -16,8 +18,18 @@ export class GameController {
     return this.gameService.findGameById(id);
   }
 
-  @Delete('/:id')
-  Remove(@Param('id') id:number){
-    return this.gameService.remove(id);
+  @Patch('/:id') //      /games/:id -> 특정 게임을 수정
+  async updateGame(@Param('id') id: number, @Body() game: UpdateGameDto){
+    await this.gameService.updateGame(id, game);
+    return Object.assign({
+      data: { ...game },
+      statusCode: 200,
+      statusMsg: 'updated successfully',
+    });
+  }
+
+  @Delete('/:id')  //       /games/:id -> 특정 게임에 대한 게임 파일 및 게임 삭제
+  async removeGame(@Param('id') id: number){
+    return this.gameService.removeGame(id);
   }
 }

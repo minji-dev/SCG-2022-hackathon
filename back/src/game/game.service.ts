@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Game } from '../entities/game.entity';
 import { Repository } from 'typeorm';
+import { UpdateGameDto } from './dto/update-game.dto';
 import { Game_File } from 'src/entities/game_file.entity';
 import { Field } from 'src/entities/field.entity';
 import { Field_File } from 'src/entities/field_file.entity';
@@ -69,7 +70,24 @@ export class GameService {
     return result;
   }
 
-  async remove(id: number){
+  async updateGame(id: number, game: UpdateGameDto) {
+    await this.gameRepository.update(
+      id,
+      game
+    );
+  }
 
+  async removeGame(id: number){
+    await this.gamefileRepository
+    .createQueryBuilder()
+    .delete()
+    .where('game_file.game_id = :id', {id:id})
+    .execute(); //일단 game_file 삭제
+
+    await this.gameRepository
+    .createQueryBuilder()
+    .delete()
+    .where('game.id = :id', {id:id})
+    .execute(); //그러고 난 후에 game 삭제
   }
 }
