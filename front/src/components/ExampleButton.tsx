@@ -3,7 +3,7 @@ import { Props } from "types/types";
 import useApi from "hooks/useApi"
 import { Game } from "types/api";
 function ExampleButton({ id }: Props) {
-  const game = useApi<Game>(`games/${id}`);
+  const games = useApi<Game[]>(`games/${id}`);
   return (
     <div style={{ display: "flex", justifyContent: "center" }}>
       <Link href="/">

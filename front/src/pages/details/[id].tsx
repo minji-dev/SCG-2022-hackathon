@@ -9,12 +9,12 @@ import CatListButton from "components/CatListbutton";
 const Detail: NextPage = () => {
   const router = useRouter();
   const { id } = router.query;
-  const game = useApi<Game>(`games/6`);
-  console.log(game)
+  const games = useApi<Game[]>(`games/${id}`);
+  console.log(games)
 
   return (
     <div>
-      <PageHead title={game?.name}/>
+      <PageHead title={games?.at(0)?.name}/>
       <h1
         style={{
           textAlign: "center",
@@ -23,7 +23,7 @@ const Detail: NextPage = () => {
           margin: "10px auto",
         }}
       >
-        {game?.name}
+        {games?.at(0)?.name}
       </h1>
       <div>
         <div
@@ -35,7 +35,7 @@ const Detail: NextPage = () => {
         >
           <h2>인트로</h2>
           <hr />
-          <p>{game?.intro}</p>
+          <p>{games?.at(0)?.intro}</p>
         </div>
         <ExampleButton id={Number(id)}/>
         <div
@@ -47,7 +47,7 @@ const Detail: NextPage = () => {
         >
           <h2>규칙</h2>
           <hr />
-          <p>{game?.context}</p>
+          <p>{games?.at(0)?.context}</p>
         </div>
       </div>
       <CatListButton id={Number(id)} />
