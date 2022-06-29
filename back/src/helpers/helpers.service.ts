@@ -84,19 +84,7 @@ export class HelpersService {
         return singers[random];
     } else if(game == 3) { //랜덤추천
         random = Math.floor(Math.random() * 19 + 1);
-        let result = await this.gameRepository.createQueryBuilder('g')
-            .leftJoinAndSelect('g.field', 'f')
-            .leftJoinAndSelect('g.game_file', 'g_fi')
-            .leftJoinAndSelect('g_fi.file_id', 'fi')
-            .select([
-                'g.id', 'g.name', 'g.context', 'g.level',
-                'f.id', 'f.name',
-                'g_fi.type',
-                'fi.id', 'fi.name', 'fi.mime', 'fi.location',
-            ])
-            .where("g.id = :id", { id: random })
-            .getMany();
-        return result;
+        return random;
     }
   }
 
