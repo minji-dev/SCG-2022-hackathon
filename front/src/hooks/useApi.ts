@@ -6,11 +6,11 @@ function useApi<T>(endpoint: string) {
   const [data, setData] = useState<T | null>(null);
   useEffect(() => {
     async function fetchData() {
-      try {
-        const res = await axios.get<ApiResponse<T>>(
-          `localhost:3000/api/${endpoint}`
+     try {
+        const res = await axios.get<T>(
+          `http://localhost:3000/api/${endpoint}`
         );
-        setData(res.data.data);
+        setData(res.data);
       } catch (err) {
         if (axios.isAxiosError(err)) {
           if (err.response?.status === 404) {

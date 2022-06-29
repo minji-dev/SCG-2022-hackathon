@@ -5,9 +5,9 @@ import { Game } from "types/api";
 import Image from "next/image";
 
 function GameButton({height, width, id}: Props) {
-  const game = useApi<Game>(`games/${id}`);
+  const games = useApi<Game[]>(`games/${id}`);
   const arr : JSX.Element[]= []
-  const level = game?.level || 0
+  const level = games?.at(0)?.level || 0
   if (typeof level !== "undefined") {
     // for( let i = 0; i < level; i++ ) {
     //   arr.push(<Image src="/Soju.png" alt="a" style={ {height: "40px", transform: "rotate(25deg)", marginRight: "-3px"} }/>);
@@ -16,7 +16,7 @@ function GameButton({height, width, id}: Props) {
   return (
     <Link href={`/details/${id}`}>
       <div className="a">
-        <h1>{game?.name}</h1>
+        <h1>{games?.at(0)?.name}</h1>
         <hr />
         {/* <Image
           src={ game?.game_file ? `${game?.game_file}` : '/soju.png'}    게임 상징 이미지 받기 위한 url?

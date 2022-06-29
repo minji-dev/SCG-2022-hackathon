@@ -2,14 +2,14 @@ import type { NextPage } from "next";
 import PageHead from "components/PageHead";
 import useApi from "hooks/useApi";
 import { useRouter } from "next/router";
-import { User } from "types/api";
+import { Game } from "types/api";
 import GameSymbol from "components/GameSymbol";
 import RandomButton from "components/RandomButton";
 
 const RandomGame: NextPage = () => {
   const router = useRouter();
   const { id } = router.query;
-  const game = useApi<User>(`users/${id}`);
+  const games = useApi<Game[]>(`users/${id}`);
   return (
     <div>
       <PageHead title="RandomGame" />
@@ -31,15 +31,15 @@ const RandomGame: NextPage = () => {
           margin: "30px auto",
         }}
       >
-        <GameSymbol height={265} width={200} id={game?.id} />
-        <h3>{game?.first_name}</h3>
+        <GameSymbol height={265} width={200} id={games?.at(0)?.id} />
+        <h3>{games?.at(0)?.intro}</h3>
       </div>
       <div
         style={{ width: "1181px", justifyContent: "center", margin: "0 auto" }}
       >
         <h2>규칙</h2>
         <hr />
-        <p>{game?.avatar}</p>
+        <p>{games?.at(0)?.context}</p>
       </div>
       <div style={{ display: "flex", justifyContent: "center" }}>
         <RandomButton />

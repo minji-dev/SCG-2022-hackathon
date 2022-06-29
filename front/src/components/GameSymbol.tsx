@@ -4,9 +4,9 @@ import { Game } from "types/api";
 import Image from "next/image";
 
 function GameSymbol({ height, width, id }: Props) {
-  const game = useApi<Game>(`games/${id}`);
+  const games = useApi<Game[]>(`games/${id}`);
   const arr : JSX.Element[]= []
-  const level = game?.level || 0
+  const level = games?.at(0)?.level || 0
   if (typeof level !== "undefined") {
     // for( let i = 0; i < level; i++ ) {
     //   arr.push(<Image src="/Soju.png" alt="a" style={ {height: "40px", transform: "rotate(25deg)", marginRight: "-3px"} }/>);
@@ -14,7 +14,7 @@ function GameSymbol({ height, width, id }: Props) {
   }
   return (
     <div className="a">
-      <h1>{game?.name}</h1>
+      <h1>{games?.at(0)?.name}</h1>
       <hr/>
       {/* <Image src="/" alt={game?.name} height={200}  width={200} /> */}   
       <hr />
