@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Game } from '../entities/game.entity';
 import { Repository } from 'typeorm';
+import { UpdateGameDto } from './dto/update-game.dto';
 
 
 @Injectable()
@@ -59,5 +60,12 @@ export class GameService {
     .where('g.id = :id', { id: id })
     .getMany(); 
     return result;
+  }
+
+  async updateGame(id: number, game: UpdateGameDto) {
+    await this.gameRepository.update(
+      id,
+      game
+    );
   }
 }
