@@ -1,10 +1,12 @@
 module.exports = {
     "env": {
         "browser": true,
-        "es2021": true
+        "es2021": true,
+        "node" : true
     },
     "extends": [
         "eslint:recommended",
+        "plugin:prettier/recommended",
         "plugin:react/recommended",
         "plugin:@typescript-eslint/recommended"
     ],
@@ -21,5 +23,12 @@ module.exports = {
         "@typescript-eslint"
     ],
     "rules": {
+        "react/react-in-jsx-scope": "off",
+        'prettier/prettier':[
+            'error',
+            {
+                endOfLine:auto
+            },
+        ]
     }
 }

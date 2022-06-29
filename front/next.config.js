@@ -1,5 +1,8 @@
 module.exports = {
   reactStrictMode: true,
+  images: {
+    domains: ['reqres.in']
+  },
   async rewrites() {
     console.log(process.env.NODE_ENV)
     if (process.env.NODE_ENV !== 'production') {
