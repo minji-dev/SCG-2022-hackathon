@@ -2,23 +2,27 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { File } from './entities/file.entity';
+import { Field_File } from './entities/field_file.entity';
+import { Field } from './entities/field.entity';
 
 @Injectable()
 export class AppService {
     constructor(
-        @InjectRepository(File) private fileRepository:Repository<File>
+        @InjectRepository(File) private fileRepository:Repository<File>,
+        @InjectRepository(Field) private fieldRepository:Repository<Field>,
+        @InjectRepository(Field_File) private fieldfileRepository:Repository<Field_File>
     ){}
     
     async loadFiles(){
-        const result = await this.fileRepository
-        .createQueryBuilder('fi')
-        .leftJoinAndSelect('fi.field_file', 'f_fi')
-        .leftJoinAndSelect('f_fi.field_id', 'f')
+        const result = await this.fieldfileRepository
+        .createQueryBuilder('f_fi')
+        .innerJoin('f_fi.field_id', 'f')
+        .innerJoin('f_fi.file_id', 'fi')
         .select([
-            'fi.id',
+            'f_fi.id',
             'f.name',
             'fi.name',
-            'fi.location',
+            'fi.location'
         ])
         .where('fi.id = 1')
         .orWhere('fi.id = 29')
