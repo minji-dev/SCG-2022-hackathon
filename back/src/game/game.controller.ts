@@ -18,7 +18,7 @@ export class GameController {
     return this.gameService.findGameById(id);
   }
 
-  @Patch('/:id')
+  @Patch('/:id') //      /games/:id -> 특정 게임을 수정
   async updateGame(@Param('id') id: number, @Body() game: UpdateGameDto){
     await this.gameService.updateGame(id, game);
     return Object.assign({
@@ -28,7 +28,7 @@ export class GameController {
     });
   }
 
-  @Delete('/:id')
+  @Delete('/:id')  //       /games/:id -> 특정 게임에 대한 게임 파일 및 게임 삭제
   async removeGame(@Param('id') id: number){
     return this.gameService.removeGame(id);
   }
