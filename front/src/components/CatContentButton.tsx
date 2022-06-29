@@ -18,7 +18,7 @@ function CatContentButton({ width, height, id, className }: Props) {
             src={
               fieldsAndFiles?.at(Number(id) - 1)?.file_id.location
                 ? `${fieldsAndFiles?.at(Number(id) - 1)?.file_id.location}`
-                : "/img/소주병.png"
+                : "/loading.png"
             }
             alt={`${fieldsAndFiles?.at(Number(id) - 1)?.file_id.name}`}
             width={width}

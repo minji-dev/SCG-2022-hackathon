@@ -9,7 +9,7 @@ function HelperButton({ className, id, width, height }: Props) {
   const helpers = useApi<Game[][]>(`/helpers`);
   return (
   <div className={className}>
-    <Link href={`/categories/${id}`}>
+    <Link href={`/helpers/${id}`}>
       <div>
         <h1 className="border-b-[3px] border-[#333d79]">
           {helpers?.at(Number(id)-1)?.at(0)?.name} 도우미!
@@ -18,7 +18,7 @@ function HelperButton({ className, id, width, height }: Props) {
           src={
             helpers?.at(Number(id)-1)?.at(0)?.game_file?.at(2)?.file_id.location
               ? `${helpers?.at(Number(id)-1)?.at(0)?.game_file?.at(2)?.file_id.location}`
-              : "/img/소주병.png"
+              : "/loading.png"
           }
           alt={`${helpers?.at(Number(id)-1)?.at(0)?.game_file?.at(2)?.file_id.name}`}
           width={width}

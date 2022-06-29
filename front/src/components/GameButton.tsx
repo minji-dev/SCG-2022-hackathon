@@ -35,7 +35,7 @@ function GameButton({ height, width, id, className }: Props) {
           src={
             games?.at(0)?.game_file?.at(2)?.file_id.location
               ? `${games?.at(0)?.game_file?.at(2)?.file_id.location}`
-              : "/img/소주병.png"
+              : "/loading.png"
           }
           alt={`${games?.at(0)?.game_file?.at(2)?.file_id.name}`}
           height={200}
