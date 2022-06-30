@@ -22,7 +22,7 @@ import { Field_File } from "./entities/field_file.entity";
       password: process.env.DB_PASSWORD,
       host: process.env.DB_HOST,
       database: process.env.DB_SCHEMA,
-      entities: [],
+      entities: ["dist/**/*.entity{.ts,.js}"],
       synchronize: true,
     }),
     TypeOrmModule.forFeature([File, Field, Field_File]),
