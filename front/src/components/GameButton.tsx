@@ -6,6 +6,7 @@ import Image from "next/image";
 
 function GameButton({ id,}: Props) {
   const games = useApi<Game[]>(`games/${id}`);
+  console.log(games?.at(0)?.game_file?.at(2)?.file_id.location)
   const fieldsAndFiles = useApi<FieldAndFile[]>(`/`);
   const arr: JSX.Element[] = [];
   const level = games?.at(0)?.level || 0;

@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { useRouter } from "next/router";
 import { Props } from "types/types";
 function BackToCatButton({id}:Props) {
   return (
