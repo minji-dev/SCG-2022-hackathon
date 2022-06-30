@@ -11,19 +11,22 @@ function CatContentButton({ width, height, id, className }: Props) {
       <div className={className}>
         <Link href={`/categories/${id}`}>
           <div>
-            <h1 className="border-b-[3px] border-[#333d79]">
+            <h1 className="border-b-[3px] border-[#333d79] text-2xl">
               {fieldsAndFiles?.at(Number(id) - 1)?.field_id.name}
             </h1>
-            <Image
-              src={
-                fieldsAndFiles?.at(Number(id) - 1)?.file_id.location
-                  ? `${fieldsAndFiles?.at(Number(id) - 1)?.file_id.location}`
-                  : "/loading.png"
-              }
-              alt={`${fieldsAndFiles?.at(Number(id) - 1)?.file_id.name}`}
-              width={width}
-              height={height}
-            />
+            <div className={`w-100% h-${height} overflow-hidden m-auto border-0`}>
+              <Image
+                src={
+                  fieldsAndFiles?.at(Number(id) - 1)?.file_id.location
+                    ? `${fieldsAndFiles?.at(Number(id) - 1)?.file_id.location}`
+                    : "/loading.png"
+                }
+                alt={`${fieldsAndFiles?.at(Number(id) - 1)?.file_id.name}`}
+                width={width}
+                height={height}
+                className={`w-${width} h-auto object-cover`}
+              />
+            </div>
           </div>
         </Link>
       </div>
