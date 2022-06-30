@@ -8,7 +8,7 @@ import Image from "next/image";
 function HelperButton({id}: Props) {
   const helpers = useApi<Game[][]>(`/helpers`);
   return (
-      <div className="hover:shadow-2xl hover:cursor-pointer border-[3px] border-[#333d79] rounded-2xl m-2 p-0 text-[#333d79] font-semibold text-center text-2xl h-48 overflow-hidden">
+      <div className="hover:shadow-2xl hover:cursor-pointer border-[3px] border-[#333d79] rounded-2xl mx-1 p-0 text-[#333d79] font-semibold text-center text-2xl h-[280px] overflow-hidden w-[250px]">
         <Link href={`/helpers/${id}`}>
           <div>
             <h1 className="border-b-[3px] border-[#333d79]">
@@ -22,9 +22,8 @@ function HelperButton({id}: Props) {
                     : "/loading.png"
                 }
                 alt={`${helpers?.at(Number(id)-1)?.at(0)?.game_file?.at(2)?.file_id.name}`}
-                width={350}
-                height={200}
-                className={`w-300 h-auto object-cover`}
+                width={250}
+                height={250}
               />
             </div>
           </div>

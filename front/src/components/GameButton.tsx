@@ -27,37 +27,35 @@ function GameButton({ id,}: Props) {
     }
   }
   return (
-    <div className="hover:shadow-2xl hover:cursor-pointer w-[170px] border-[#333d79] border-2 rounded-2xl p-0 h-[250px]">
-      <Link href={`/details/${id}`}>
-        <div>
-<<<<<<< HEAD
-          <h1 className="m-auto border-b-[3px] border-[#333d79] text-center text-2xl font-bold whitespace-nowrap">
-=======
-          <h1 className="m-auto border-b-[3px] border-[#333d79] text-center text-xl font-bold">
->>>>>>> 86360bd71df9d41ecdf275a9e7a218f1f80c858c
-            {games?.at(0)?.name}
-          </h1>
-          <Image
-            src={
-              games?.at(0)?.game_file?.at(2)?.file_id.location
-                ? `${games?.at(0)?.game_file?.at(2)?.file_id.location}`
-                : "/loading.png"
-            }
-            alt={`${games?.at(0)?.game_file?.at(2)?.file_id.name}`}
-            height={200}
-            width={200}
-            className="border-b-[3] mb-0 border-[#333d79] text-center text-2xl font-bold"
-          />
-          <hr className="h-[3px] bg-[#333d79] border-spacing-0 relative -top-2"/>
+    <>
+      <div className="hover:shadow-2xl hover:cursor-pointer w-[170px] border-[#333d79] border-2 rounded-2xl p-0 h-[250px]">
+        <Link href={`/details/${id}`}>
           <div>
-            <div className="flex flex-row h-auto border-t-[3] border-[#333d79] text-center text-lg font-bolder relative -top-[5px] my-0">
-              <span className="justify-start p-0 m-1 text-left">난이도:</span>
-              {arr}
+            <h1 className="m-auto border-b-[3px] border-[#333d79] text-center text-xl font-bold">
+              {games?.at(0)?.name}
+            </h1>
+            <Image
+              src={
+                games?.at(0)?.game_file?.at(2)?.file_id.location
+                  ? `${games?.at(0)?.game_file?.at(2)?.file_id.location}`
+                  : "/loading.png"
+              }
+              alt={`${games?.at(0)?.game_file?.at(2)?.file_id.name}`}
+              height={200}
+              width={200}
+              className="border-b-[3] mb-0 border-[#333d79] text-center text-2xl font-bold"
+            />
+            <hr className="h-[3px] bg-[#333d79] border-spacing-0 relative -top-2"/>
+            <div>
+              <div className="flex flex-row h-auto border-t-[3] border-[#333d79] text-center text-lg font-bolder relative -top-[5px] my-0">
+                <span className="justify-start p-0 m-1 text-left">난이도:</span>
+                {arr}
+              </div>
             </div>
           </div>
-        </div>
-      </Link>
-    </div>
+        </Link>
+      </div>
+    </>
   );
 }
 export default GameButton;
