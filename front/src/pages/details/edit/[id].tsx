@@ -63,35 +63,21 @@ const Detail: NextPage = () => {
         {games?.at(0)?.name + " (수정)"}
       </h1>
       <div>
-        <div
-          style={{
-            width: "1181px",
-            justifyContent: "center",
-            margin: "0 auto",
-          }}
-        >
+        <div className="w-[1181px] justify-center m-0">
           <p className="text-left border-b-[3px] p-2 border-[#333d79] font-bold text-3xl">인트로</p>
           <textarea value = { intro } 
-          style={{ width: "100%", resize: "none", border: "1px solid", outline: "none", overflow: "hidden" }}
+          className="text-xl font-[550] p-2 text-left w-full resize-none border-[1px] outline-none overflow-hidden"
           onClick={() => {setIntroEdit(1)}} 
-          className="text-xl font-[550] p-2 text-left"
           onKeyDown={autoResizeTextarea}
           onKeyUp={autoResizeTextarea}
           onChange={handleIntroChange}/>
         </div>
 
-        <div
-          style={{
-            width: "1181px",
-            justifyContent: "center",
-            margin: "0 auto",
-          }}
-        >
+        <div className="w-[1181px] justify-center m-0">
           <p className="text-left border-b-[3px] p-2 border-[#333d79] font-bold text-3xl">규칙</p>
           <textarea value = { description } 
-          style={{ width: "100%", resize: "none", border: "1px solid", outline: "none", overflow: "hidden" }}
+          className="text-xl font-[550] p-2 text-left w-full resize-none border-[1px] outline-none overflow-hidden"
           onClick={() => {setDescriptionEdit(1)}} 
-          className="text-xl font-[550] p-2 text-left"
           onKeyDown={autoResizeTextarea}
           onKeyUp={autoResizeTextarea}
           onChange={handleContextChange}/>

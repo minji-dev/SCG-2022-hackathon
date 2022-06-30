@@ -8,9 +8,10 @@ import useApi from "hooks/useApi";
 const HelperMain: NextPage = () => {
   let rannom = useApi<number>("helpers/3");
   return (
-    <div>
+    <div className="mt-2">
       <PageHead title="도우미" />
-      <div className="grid justify-center w-1/2 h-12 min-h-screen grid-cols-2 gap-3 px-20 m-auto">
+      <RandomButton id={rannom||0}/>
+      <div className="grid justify-center w-1/2 h-auto grid-cols-2 gap-4 px-20 m-auto mt-4">
         <HelperButton
           width={350}
           height={200}
@@ -30,7 +31,7 @@ const HelperMain: NextPage = () => {
           key={3}
         />
       </div>
-      <RandomButton id={rannom||0}/>
+      
     </div>
   );
 };

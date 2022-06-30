@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Props } from "types/types";
 import useApi from "hooks/useApi";
 import { Game } from "types/api";

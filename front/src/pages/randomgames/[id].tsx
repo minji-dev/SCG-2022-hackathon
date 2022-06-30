@@ -10,7 +10,7 @@ const RandomGame: NextPage = () => {
   const router = useRouter();
   const { id } = router.query;
   const games = useApi<Game[]>(`games/${id}`);
-  let rannom = useApi<number>("helpers/3");
+  let rannum = useApi<number>("helpers/3");
   return (
     <div className="text-[#333d79]">
       <PageHead title="RandomGame" />
@@ -32,7 +32,7 @@ const RandomGame: NextPage = () => {
         </p>
       </div>
       <div className="flex justify-center">
-        <RandomButton id={rannom||1}/>
+        <RandomButton id={rannum||1}/>
       </div>
     </div>
   );

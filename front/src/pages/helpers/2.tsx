@@ -3,7 +3,7 @@ import Link from "next/link";
 import PageHead from "components/PageHead";
 import useApi from "hooks/useApi";
 
-const Helper1: NextPage = () => {
+const Helper2: NextPage = () => {
   const helper = useApi<string[]>(`helpers/2`);
   return (
     <div>
@@ -23,4 +23,4 @@ const Helper1: NextPage = () => {
   );
 };
 
-export default Helper1;
+export default Helper2;
