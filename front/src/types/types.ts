@@ -8,4 +8,6 @@ export interface Props {
   level?: number;
   intro?: string;
   description?: string;
+  text?: string;
+  flag?: boolean;
 }

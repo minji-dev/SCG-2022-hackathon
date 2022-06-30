@@ -30,7 +30,7 @@ function GameButton({ id,}: Props) {
     <div className="hover:shadow-2xl hover:cursor-pointer w-[170px] border-[#333d79] border-2 rounded-2xl p-0 h-[250px]">
       <Link href={`/details/${id}`}>
         <div>
-          <h1 className="m-auto border-b-[3px] border-[#333d79] text-center text-2xl font-bold">
+          <h1 className="m-auto border-b-[3px] border-[#333d79] text-center text-2xl font-bold whitespace-nowrap">
             {games?.at(0)?.name}
           </h1>
           <Image

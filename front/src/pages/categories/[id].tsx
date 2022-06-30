@@ -21,7 +21,6 @@ const Category: NextPage = () => {
           <GameButton
             key={game.id}
             id={game.id}
-            className={""}
             width={200}
             height={200}
           />
