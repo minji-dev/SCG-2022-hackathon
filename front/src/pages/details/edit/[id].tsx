@@ -7,6 +7,7 @@ import ExampleButton from "components/ExampleButton";
 import Link from "next/link";
 import React, { useState } from 'react';
 import { Props } from "types/types";
+import BackToCatButton from "components/BackToCatbutton";
 
 const Detail: NextPage = () => {
   const router = useRouter();
@@ -18,28 +19,19 @@ const Detail: NextPage = () => {
   const intro = introEdit ? undefined : games?.at(0)?.intro;
 
   const autoResizeTextarea = () => {
-    let textarea = document.querySelector('.autoTextarea');
+    let textarea = document.querySelectorAll('textarea');
 
-    if (textarea) {
-      textarea.style.height = 'auto';
-      let height = textarea.scrollHeight;
-      textarea.style.height = `${height}px`;
+    for (let i = 0; i < textarea.length; i++) {
+      textarea[i].style.height = 'auto';
+      let height = textarea[i].scrollHeight;
+      textarea[i].style.height = `${height}px`;
     }
   }
 
   return (
-    <div>
+    <div className="text-[#333d79]">
       <PageHead title={games?.at(0)?.name}/>
-      <h1
-        style={{
-          textAlign: "center",
-          width: "auto",
-          justifyContent: "center",
-          margin: "10px auto",
-          fontWeight: "800",
-          fontSize: "50px"
-        }}
-      >
+      <h1 className="justify-center w-auto m-2 text-5xl font-bold text-center">
         {games?.at(0)?.name}
       </h1>
       <div>
@@ -53,8 +45,9 @@ const Detail: NextPage = () => {
           <p style={{ fontSize: "32px", fontWeight: "700" }}>인트로</p>
           <hr style={{ marginTop: "5px", marginBottom: "5px", height: "2px" }}/>
           <textarea value = { intro } 
+          style={{ width: "100%", resize: "none"}}
           onClick={() => {setIntroEdit(1)}} 
-          className="autoTextarea"
+          className="text-xl font-[550] p-2 text-left"
           onKeyDown={autoResizeTextarea}
           onKeyUp={autoResizeTextarea}/>
         </div>
@@ -69,59 +62,18 @@ const Detail: NextPage = () => {
           <p style={{ fontSize: "32px", fontWeight: "700" }}>규칙</p>
           <hr style={{ marginTop: "5px", marginBottom: "5px", height: "2px" }}/>
           <textarea value = { description } 
+          style={{ width: "100%", resize: "none"}}
           onClick={() => {setDescriptionEdit(1)}} 
-          className="autoTextarea"
+          className="text-xl font-[550] p-2 text-left"
           onKeyDown={autoResizeTextarea}
           onKeyUp={autoResizeTextarea}/>
           <Link href={`/details/${id}`}>
-          <button className="EditButton">저장</button>
+            <span className="cursor-pointer hover:bg-slate-500 hover:ring-4 ring-offset-4 ring-slate-500 transition h-12 w-auto border-2 bg-[#333d79] justify- m-auto rounded-3xl px-6 py-2 text-white text-xl inline-block float-right font-medium">
+              저장
+            </span>
           </Link>
         </div>
-        
       </div>
-      
-      <style jsx>{`
-        @import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);
-        h1 {
-          color: #333d79;
-          text-align: center;
-          font-family: "NanumSquare", sans-serif;
-          font-weight: 700;
-          font-size: 40px;
-        }
-        h2 {
-          color: #333d79;
-          font-family: "NanumSquare", sans-serif;
-        }
-        p {
-          color: #333d79;
-          font-family: "NanumSquare", sans-serif;
-        }
-        hr {
-          background-color: #333d79;
-          height: 3px;
-          border: 0px;
-        }
-        .EditButton {
-          float: right;
-          fontSize: 120px;
-          background-color: #333d79;
-          color: #ffffff;
-          width: 80px;
-          height: 40px;
-          font-family: "NanumSquare", sans-serif;
-          text-align: center;
-          border-radius: 20px;
-          font-size: 18px;
-        }
-        textarea {
-          font-size: 20px;
-          font-weight: 550;
-          width: 100%;
-          color: #333d79;
-          font-family: "NanumSquare", sans-serif;
-        }
-      `}</style>
     </div>
   );
 };
