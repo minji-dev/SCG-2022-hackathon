@@ -1,5 +1,10 @@
 {
   "dependencies": {
-    "class-validator": "^0.13.2"
+    "@nestjs/config": "^2.1.0",
+    "@nestjs/typeorm": "^8.1.4",
+    "@types/node": "^18.0.0",
+    "class-validator": "^0.13.2",
+    "mysql2": "^2.3.3",
+    "typeorm": "^0.3.7"
   }
 }
