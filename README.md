@@ -29,8 +29,11 @@ $ npm install
 front / back 각각 서버 실행
 
 ```bash
-# development
+# development - back
 $ npm run start
+
+# development - front
+$ npm run dev
 
 # watch mode
 $ npm run start:dev
