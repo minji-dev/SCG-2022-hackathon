@@ -18,7 +18,7 @@ export class GameController {
     return this.gameService.findGameById(id);
   }
 
-  @Patch('/edit/:id')
+  @Patch('/:id') //    /games/edit/:id -> 수정 고고
   async updateGame(@Param('id') id: number, @Body() game: UpdateGameDto){
     await this.gameService.updateGame(id, game);
     return Object.assign({
