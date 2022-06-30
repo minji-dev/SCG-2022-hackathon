@@ -11,7 +11,7 @@ const RandomGame: NextPage = () => {
   const { id } = router.query;
   const games = useApi<Game[]>(`games/${id}`);
   return (
-    <div>
+    <div className="text-[#333d79]">
       <PageHead title="RandomGame" />
       <h2 className="justify-center m-auto text-3xl text-center">
         잼민이가 좋아하는 랜덤~게임! 아 무슨~게임! 게임 스타트!
@@ -30,38 +30,9 @@ const RandomGame: NextPage = () => {
           {games?.at(0)?.context}
         </p>
       </div>
-      <div style={{ display: "flex", justifyContent: "center" }}>
+      <div className="flex justify-center">
         <RandomButton />
       </div>
-      <style jsx>{`
-        @import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);
-        h1 {
-          color: #333d79;
-          text-align: center;
-          font-family: "NanumSquare", sans-serif;
-          font-weight: 700;
-          font-size: 40px;
-        }
-        h2 {
-          color: #333d79;
-          font-family: "NanumSquare", sans-serif;
-          font-weight: 550;
-        }
-        h3 {
-          color: #333d79;
-          font-family: "NanumSquare", sans-serif;
-          font-weight: 550;
-        }
-        p {
-          color: #333d79;
-          font-family: "NanumSquare", sans-serif;
-        }
-        hr {
-          background-color: #333d79;
-          height: 3px;
-          border: 0px;
-        }
-      `}</style>
     </div>
   );
 };

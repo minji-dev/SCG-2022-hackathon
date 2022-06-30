@@ -8,7 +8,6 @@ function CatContentButton({ width, height, id, className }: Props) {
   const fieldsAndFiles = useApi<FieldAndFile[]>("/");
   console.log(fieldsAndFiles?.at(Number(id) - 1)?.file_id.location);
   return (
-    <div className="border-[3px] border-[#333d79] rounded-2xl m-2 p-0 text-[#333d79] font-semibold text-center text-2xl">
       <div className={className}>
         <Link href={`/categories/${id}`}>
           <div>
@@ -28,7 +27,6 @@ function CatContentButton({ width, height, id, className }: Props) {
           </div>
         </Link>
       </div>
-    </div>
   );
 }
 export default CatContentButton;
