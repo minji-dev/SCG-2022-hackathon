@@ -1,6 +1,5 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete, Query } from '@nestjs/common';
 import { GameService } from './game.service';
-import { CreateGameDto } from "./dto/create-game.dto";
 import { UpdateGameDto } from "./dto/update-game.dto";
 
 
@@ -26,14 +25,5 @@ export class GameController {
       statusCode: 200,
       statusMsg: 'updated successfully',
     });
-  }
-
-  @Delete('/:id')  //       /games/:id -> 특정 게임에 대한 게임 파일 및 게임 삭제
-  async removeGame(@Param('id') id: number){
-    await this.gameService.removeGame(id);
-    return Object.assign({
-      statusCode: 200,
-      statusMsg: 'delete successful'
-    })
   }
 }

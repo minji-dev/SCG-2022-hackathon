@@ -1,22 +1,15 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Game } from '../entities/game.entity';
 import { Repository } from 'typeorm';
+
+import { Game } from '../entities/game.entity';
 import { UpdateGameDto } from './dto/update-game.dto';
-import { Game_File } from 'src/entities/game_file.entity';
-import { Field } from 'src/entities/field.entity';
-import { Field_File } from 'src/entities/field_file.entity';
-import { File } from 'src/entities/file.entity';
 
 
 @Injectable()
 export class GameService {
   constructor(
     @InjectRepository(Game) private gameRepository: Repository<Game>,
-    @InjectRepository(Game_File) private gamefileRepository: Repository<Game_File>,
-    @InjectRepository(Field) private fieldRepository: Repository<Field>,
-    @InjectRepository(Field_File) private fieldfileRepository: Repository<Field_File>,
-    @InjectRepository(File) private fileRepository: Repository<File>,
     ){}
   
   async findGamesByField(field: number){
@@ -75,19 +68,5 @@ export class GameService {
       id,
       game
     );
-  }
-
-  async removeGame(id: number){
-    await this.gamefileRepository
-    .createQueryBuilder()
-    .delete()
-    .where('game_file.game_id = :id', {id:id})
-    .execute(); //일단 game_file 삭제
-
-    await this.gameRepository
-    .createQueryBuilder()
-    .delete()
-    .where('game.id = :id', {id:id})
-    .execute(); //그러고 난 후에 game 삭제
   }
 }

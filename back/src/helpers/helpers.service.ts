@@ -1,17 +1,14 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Db, Repository } from 'typeorm';
+
 import { Game } from '../entities/game.entity';
-// import { Game_File } from "../entities/game_file.entity";
-// import { Field_File } from "../entities/field_file.entity";
 
 
 @Injectable()
 export class HelpersService {
   constructor(  
     @InjectRepository(Game) private gameRepository: Repository<Game>,
-    // @InjectRepository(Game_File) private fieldRepository: Repository<Game_File>,
-    // @InjectRepository(Field_File) private fileRepository: Repository<Field_File>,
     ){}
     
   async getAllHelpers() { //전체 헬퍼의 image 파일
