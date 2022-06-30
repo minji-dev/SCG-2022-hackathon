@@ -19,13 +19,7 @@ const Detail: NextPage = () => {
         {games?.at(0)?.name}
       </h1>
       <div>
-        <div
-          style={{
-            width: "1181px",
-            justifyContent: "center",
-            margin: "0 auto",
-          }}
-        >
+        <div className="justify-center w-[1181px] m-auto">
           <p className="text-left border-b-[3px] p-2 border-[#333d79] text-[#333d79] font-bold text-3xl">
             인트로
           </p>
@@ -34,19 +28,16 @@ const Detail: NextPage = () => {
           </p>
         </div>
         <ExampleButton id={Number(id)} />
-        <div
-          style={{
-            width: "1181px",
-            justifyContent: "center",
-            margin: "0 auto",
-          }}
-        >
-          <p style={{ fontSize: "32px", fontWeight: "700" }}>규칙</p>
-          <hr style={{ marginTop: "5px", marginBottom: "5px", height: "2px" }}/>
-          <p style={{ fontSize: "20px", fontWeight: "550" }}>{games?.at(0)?.context}</p>
+        <div className="justify-center w-[1181px] m-auto">
+          <p className="text-left border-b-[3px] p-2 border-[#333d79] text-[#333d79] font-bold text-3xl">
+            규칙
+          </p>
+          <p className="text-xl font-[550] p-2 text-left">{games?.at(0)?.context}</p>
           <BackButton/>
           <Link href={`/details/edit/${id}`}>
-            <button className="EditButton">수정</button>
+            <span className="h-12 w-auto border-2 bg-[#333d79] justify- m-auto rounded-3xl px-6 py-2 text-white text-xl inline-block float-right font-medium">
+              수정
+            </span>
           </Link>
         </div>
       </div>
