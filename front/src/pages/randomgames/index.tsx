@@ -6,6 +6,7 @@ import { Game } from "types/api";
 import GameSymbol from "components/GameSymbol";
 import RandomButton from "components/RandomButton";
 import { debug } from "console";
+import Link from "next/link";
 
 const RandomGame: NextPage = () => {
   const router = useRouter();
@@ -15,6 +16,11 @@ const RandomGame: NextPage = () => {
   return (
     <div className="text-[#333d79]">
       <PageHead title="RandomGame" />
+      <div className="flex justify-center mb-5">
+        <button onClick={()=>{window.location.reload()}} 
+          className="z-10 cursor-pointer hover:bg-slate-500 hover:ring-4 ring-offset-4 ring-slate-500 transition m-auto p-2 w-44 h-12 bg-[#333d79] rounded-2xl text-white text-2xl font-medium text-center">
+          랜덤~~~~게임 </button>
+      </div>
       <h2 className="justify-center m-auto text-3xl text-center">
         잼민이가 좋아하는 랜덤~ 게임! 아 무슨~ 게임! 게임 스타트!
       </h2>
@@ -32,11 +38,13 @@ const RandomGame: NextPage = () => {
           {games?.at(0)?.context}
         </p>
       </div>
-      <div className="flex justify-center">
-        <button onClick={()=>{window.location.reload()}} 
-          className="cursor-pointer hover:bg-slate-500 hover:ring-4 ring-offset-4 ring-slate-500 transition m-auto p-2 w-44 h-12 bg-[#333d79] rounded-2xl text-white text-2xl font-medium text-center">
-          랜덤~~~~게임 </button>
-      </div>
+      <Link href={`/helpers`}>
+        <div className="flex justify-center">
+          <span className="cursor-pointer hover:bg-slate-500 hover:ring-4 ring-offset-4 ring-slate-500 transition m-3 text-center bg-[#333d79] justify-center text-white text-xl rounded-2xl py-2 px-10">
+            이전으로
+          </span>
+        </div>
+      </Link>
     </div>
   );
 };
