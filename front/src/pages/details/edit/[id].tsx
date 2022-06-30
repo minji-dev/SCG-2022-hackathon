@@ -70,6 +70,11 @@ const Detail: NextPage = () => {
               저장
             </span>
           </Link>
+          <Link href={`/details/${id}`}>
+            <span className="cursor-pointer hover:bg-slate-500 hover:ring-4 ring-offset-4 ring-slate-500 transition h-12 w-auto border-2 bg-[#333d79] justify- m-auto rounded-3xl px-6 py-2 text-white text-xl inline-block float-left font-medium">
+              취소
+            </span>
+          </Link>
         </div>
       </div>
     </div>
