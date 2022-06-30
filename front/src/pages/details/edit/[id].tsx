@@ -30,9 +30,9 @@ const Detail: NextPage = () => {
 
   return (
     <div className="text-[#333d79]">
-      <PageHead title={games?.at(0)?.name}/>
+      <PageHead title={games?.at(0)?.name + " (수정)"}/>
       <h1 className="justify-center w-auto m-2 text-5xl font-bold text-center">
-        {games?.at(0)?.name}
+        {games?.at(0)?.name + " (수정)"}
       </h1>
       <div>
         <div
@@ -42,10 +42,9 @@ const Detail: NextPage = () => {
             margin: "0 auto",
           }}
         >
-          <p style={{ fontSize: "32px", fontWeight: "700" }}>인트로</p>
-          <hr style={{ marginTop: "5px", marginBottom: "5px", height: "2px" }}/>
+          <p className="text-left border-b-[3px] p-2 border-[#333d79] font-bold text-3xl">인트로</p>
           <textarea value = { intro } 
-          style={{ width: "100%", resize: "none"}}
+          style={{ width: "100%", resize: "none", border: "1px solid", outline: "none", overflow: "hidden" }}
           onClick={() => {setIntroEdit(1)}} 
           className="text-xl font-[550] p-2 text-left"
           onKeyDown={autoResizeTextarea}
@@ -59,10 +58,9 @@ const Detail: NextPage = () => {
             margin: "0 auto",
           }}
         >
-          <p style={{ fontSize: "32px", fontWeight: "700" }}>규칙</p>
-          <hr style={{ marginTop: "5px", marginBottom: "5px", height: "2px" }}/>
+          <p className="text-left border-b-[3px] p-2 border-[#333d79] font-bold text-3xl">규칙</p>
           <textarea value = { description } 
-          style={{ width: "100%", resize: "none"}}
+          style={{ width: "100%", resize: "none", border: "1px solid", outline: "none", overflow: "hidden" }}
           onClick={() => {setDescriptionEdit(1)}} 
           className="text-xl font-[550] p-2 text-left"
           onKeyDown={autoResizeTextarea}
