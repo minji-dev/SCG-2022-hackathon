@@ -15,7 +15,7 @@ const RandomGame: NextPage = () => {
     <div className="text-[#333d79]">
       <PageHead title="RandomGame" />
       <h2 className="justify-center m-auto text-3xl text-center">
-        잼민이가 좋아하는 랜덤~게임! 아 무슨~게임! 게임 스타트!
+        잼민이가 좋아하는 랜덤~ 게임! 아 무슨~ 게임! 게임 스타트!
       </h2>
       <div className="flex flex-row justify-center w-3/4 h-64 mx-auto my-6 text-center">
         <GameSymbol height={265} width={200} id={games?.at(0)?.id} />

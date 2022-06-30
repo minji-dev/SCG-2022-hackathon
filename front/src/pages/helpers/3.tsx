@@ -9,7 +9,7 @@ const Helper1: NextPage = () => {
     <div>
       <PageHead title="훈민정음 도우미" />
       <h1 className="text-[#333d79] text-center w-auto justify-center m-auto my-10 mb-5 font-normal text-5xl">
-        지하철~ 몇호선?!
+        지하철~ 몇 호선?!
       </h1>
       <h1 className="justify-center text-[#333d79] m-auto text-7xl font-extrabold text-center border-t border-b-2 p-5 m-10">{isNaN(helper)? helper + "!" : helper + "호선!"}</h1>
       <Link href={`/helpers`}>
