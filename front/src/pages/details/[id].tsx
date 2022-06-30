@@ -12,6 +12,7 @@ const Detail: NextPage = () => {
   const { id } = router.query;
   const games = useApi<Game[]>(`games/${id}`);
   console.log(games);
+
   return (
     <div className="text-[#333d79]">
       <PageHead title={games?.at(0)?.name} />
