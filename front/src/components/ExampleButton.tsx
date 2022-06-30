@@ -5,7 +5,7 @@ function ExampleButton({ id }: Props) {
   const games = useApi<Game[]>(`games/${id}`);
 
   const playIntro = () => {
-    var audio = new Audio(games[0].game_file[0].file_id.location);
+    var audio = new Audio(games?.at(0)?.game_file[0].file_id.location);
     audio.play();
   }
 

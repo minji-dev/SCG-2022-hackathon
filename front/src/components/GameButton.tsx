@@ -27,7 +27,7 @@ function GameButton({ id,}: Props) {
     }
   }
   return (
-    <div className="hover:shadow-2xl hover:cursor-pointer w-auto h-72 border-[#333d79] border-2 rounded-2xl p-0">
+    <div className="hover:shadow-2xl hover:cursor-pointer w-[170px] border-[#333d79] border-2 rounded-2xl p-0 h-[230px]">
       <Link href={`/details/${id}`}>
         <div>
           <h1 className="m-auto border-b-[3px] border-[#333d79] text-center text-2xl font-bold">
@@ -44,9 +44,9 @@ function GameButton({ id,}: Props) {
             width={200}
             className="border-b-[3] mb-0 border-[#333d79] text-center text-2xl font-bold"
           />
-          <hr className="h-1 bg-[#333d79] border-spacing-0 relative -top-2"/>
+          <hr className="h-[3px] bg-[#333d79] border-spacing-0 relative -top-2"/>
           <div>
-            <div className="flex flex-row h-auto border-t-[3] border-[#333d79] text-center text-lg font-bolder relative -top-1">
+            <div className="flex flex-row h-auto border-t-[3] border-[#333d79] text-center text-lg font-bolder relative -top-[5px] my-0">
               <span className="justify-start p-0 m-1 text-left">난이도:</span>
               {arr}
             </div>
