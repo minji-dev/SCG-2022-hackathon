@@ -5,14 +5,28 @@ import { useRouter } from "next/router";
 import { Game } from "types/api";
 import ExampleButton from "components/ExampleButton";
 import Link from "next/link";
-import BackButton from "components/Backbutton";
+import React, { useState } from 'react';
+import { Props } from "types/types";
 
 const Detail: NextPage = () => {
   const router = useRouter();
   const { id } = router.query;
   const games = useApi<Game[]>(`games/${id}`);
-  console.log(games)
-  const str = games?.at(0)?.context;
+  let [descriptionEdit, setDescriptionEdit] = useState(0);
+  let [introEdit, setIntroEdit] = useState(0);
+  const description = descriptionEdit ? undefined : games?.at(0)?.context;
+  const intro = introEdit ? undefined : games?.at(0)?.intro;
+
+  const autoResizeTextarea = () => {
+    let textarea = document.querySelector('.autoTextarea');
+
+    if (textarea) {
+      textarea.style.height = 'auto';
+      let height = textarea.scrollHeight;
+      textarea.style.height = `${height}px`;
+    }
+  }
+
   return (
     <div>
       <PageHead title={games?.at(0)?.name}/>
@@ -38,9 +52,13 @@ const Detail: NextPage = () => {
         >
           <p style={{ fontSize: "32px", fontWeight: "700" }}>인트로</p>
           <hr style={{ marginTop: "5px", marginBottom: "5px", height: "2px" }}/>
-          <p style={{ fontSize: "20px", fontWeight: "550" }}>{games?.at(0)?.intro}</p>
+          <textarea value = { intro } 
+          onClick={() => {setIntroEdit(1)}} 
+          className="autoTextarea"
+          onKeyDown={autoResizeTextarea}
+          onKeyUp={autoResizeTextarea}/>
         </div>
-        <ExampleButton id={Number(id)}/>
+
         <div
           style={{
             width: "1181px",
@@ -50,8 +68,11 @@ const Detail: NextPage = () => {
         >
           <p style={{ fontSize: "32px", fontWeight: "700" }}>규칙</p>
           <hr style={{ marginTop: "5px", marginBottom: "5px", height: "2px" }}/>
-          <textarea>{str}</textarea>
-          <BackButton />
+          <textarea value = { description } 
+          onClick={() => {setDescriptionEdit(1)}} 
+          className="autoTextarea"
+          onKeyDown={autoResizeTextarea}
+          onKeyUp={autoResizeTextarea}/>
           <Link href={`/details/${id}`}>
           <button className="EditButton">저장</button>
           </Link>

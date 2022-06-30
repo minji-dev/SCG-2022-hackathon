@@ -45,7 +45,11 @@ const Detail: NextPage = () => {
           <hr style={{ marginTop: "5px", marginBottom: "5px", height: "2px" }}/>
           <p style={{ fontSize: "20px", fontWeight: "550" }}>{games?.at(0)?.context}</p>
           <BackButton/>
-          <Link href={`/details/edit/${id}`}>
+          <Link 
+          href={{
+            pathname: `/details/edit/${id}`, 
+            query: { currentName: JSON.stringify({ description: "asd" }) }
+            }}>
             <button className="EditButton">수정</button>
           </Link>
         </div>

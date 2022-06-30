@@ -15,7 +15,7 @@ import { Field_File } from "./entities/field_file.entity";
     host: 'localhost',
     port: 3306,
     username: 'root',
-    password: '1234',
+    password: 'vingsu1a@',
     database: 'scg',
     autoLoadEntities: true,
     synchronize: true,
