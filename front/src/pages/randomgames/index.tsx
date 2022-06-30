@@ -19,7 +19,7 @@ const RandomGame: NextPage = () => {
       <div className="flex justify-center mb-5">
         <button onClick={()=>{window.location.reload()}} 
           className="z-10 cursor-pointer hover:bg-slate-500 hover:ring-4 ring-offset-4 ring-slate-500 transition m-auto p-2 w-44 h-12 bg-[#333d79] rounded-2xl text-white text-2xl font-medium text-center">
-          랜덤~~~~게임 </button>
+          랜덤~~ 게임 </button>
       </div>
       <h2 className="justify-center m-auto text-3xl text-center">
         잼민이가 좋아하는 랜덤~ 게임! 아 무슨~ 게임! 게임 스타트!
