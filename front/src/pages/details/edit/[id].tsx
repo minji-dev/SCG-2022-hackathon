@@ -8,6 +8,8 @@ import Link from "next/link";
 import React, { useState } from 'react';
 import { Props } from "types/types";
 import BackToCatButton from "components/BackToCatbutton";
+import axios from "axios";
+import { debug } from "console";
 
 const Detail: NextPage = () => {
   const router = useRouter();
@@ -17,6 +19,32 @@ const Detail: NextPage = () => {
   let [introEdit, setIntroEdit] = useState(0);
   const description = descriptionEdit ? undefined : games?.at(0)?.context;
   const intro = introEdit ? undefined : games?.at(0)?.intro;
+  let [changedIntro, setChangedIntro] = useState(0);
+  let [changedContext, setChangedContext] = useState(0);
+
+
+  const handleIntroChange = (event) => {
+    setChangedIntro(event.target.value);
+  }
+
+  const handleContextChange = (event) => {
+    setChangedContext(event.target.value);
+  }
+
+  const Edit = () => {
+    let intro_ = changedIntro;
+    let context_ = changedContext;
+    if(!intro_) intro_ = games?.at(0)?.intro;
+    if(!context_) context_ = games?.at(0)?.context;
+
+    axios.patch(`http://localhost:3000/api/games/${id}`, { intro: intro_, context:  context_ })
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
 
   const autoResizeTextarea = () => {
     let textarea = document.querySelectorAll('textarea');
@@ -24,7 +52,7 @@ const Detail: NextPage = () => {
     for (let i = 0; i < textarea.length; i++) {
       textarea[i].style.height = 'auto';
       let height = textarea[i].scrollHeight;
-      textarea[i].style.height = `${height}px`;
+      textarea[i].style.height = `${2+height}px`;
     }
   }
 
@@ -48,7 +76,8 @@ const Detail: NextPage = () => {
           onClick={() => {setIntroEdit(1)}} 
           className="text-xl font-[550] p-2 text-left"
           onKeyDown={autoResizeTextarea}
-          onKeyUp={autoResizeTextarea}/>
+          onKeyUp={autoResizeTextarea}
+          onChange={handleIntroChange}/>
         </div>
 
         <div
@@ -64,9 +93,10 @@ const Detail: NextPage = () => {
           onClick={() => {setDescriptionEdit(1)}} 
           className="text-xl font-[550] p-2 text-left"
           onKeyDown={autoResizeTextarea}
-          onKeyUp={autoResizeTextarea}/>
+          onKeyUp={autoResizeTextarea}
+          onChange={handleContextChange}/>
           <Link href={`/details/${id}`}>
-            <span className="cursor-pointer hover:bg-slate-500 hover:ring-4 ring-offset-4 ring-slate-500 transition h-12 w-auto border-2 bg-[#333d79] justify- m-auto rounded-3xl px-6 py-2 text-white text-xl inline-block float-right font-medium">
+            <span onClick={Edit} className="cursor-pointer hover:bg-slate-500 hover:ring-4 ring-offset-4 ring-slate-500 transition h-12 w-auto border-2 bg-[#333d79] justify- m-auto rounded-3xl px-6 py-2 text-white text-xl inline-block float-right font-medium">
               저장
             </span>
           </Link>
