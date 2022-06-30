@@ -3,8 +3,10 @@ import PageHead from "components/PageHead";
 import CatContentButton from "components/CatContentButton";
 import RandomButton from "components/RandomButton";
 import HelperButton from "components/HelperButton";
+import useApi from "hooks/useApi";
 
 const HelperMain: NextPage = () => {
+  let rannom = useApi<number>("helpers/3");
   return (
     <div>
       <PageHead title="도우미" />
@@ -28,7 +30,7 @@ const HelperMain: NextPage = () => {
           key={3}
         />
       </div>
-      <RandomButton/>
+      <RandomButton id={rannom||0}/>
     </div>
   );
 };
