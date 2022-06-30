@@ -15,7 +15,7 @@ function ExampleButton({ id, text, flag}: Props) {
 
   return (
     <div className="flex justify-center">
-        <span onClick={playAudio} className="cursor-pointer hover:bg-slate-500 hover:ring-4 ring-offset-4 ring-slate-500 transition h-12 w-auto border-2 bg-[#333d79] justify-center m-auto rounded-2xl px-10 py-1 text-white text-2xl font-medium">
+        <span onClick={playAudio} className="text-center cursor-pointer hover:bg-slate-500 hover:ring-4 ring-offset-4 ring-slate-500 transition h-12 w-[200px] border-2 bg-[#333d79] justify-center m-auto rounded-2xl px-10 py-1 text-white text-2xl font-medium">
           {text}
         </span>
     </div>

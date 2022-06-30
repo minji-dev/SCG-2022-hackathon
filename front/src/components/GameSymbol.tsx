@@ -25,7 +25,7 @@ function GameSymbol({ id }: Props) {
     }
   }
   return (
-  <div className="w-48 h-72 border-[#333d79] border-2 rounded-2xl p-0 mr-36">
+  <div className="w-[200px] h-72 border-[#333d79] border-2 rounded-2xl p-0 mr-36">
       <h1 className="text-2xl text-[#333d79] font-bold border-b-2 border-[#333d79]">{games?.at(0)?.name}</h1>
       <Image
           src={
@@ -40,7 +40,7 @@ function GameSymbol({ id }: Props) {
         />
       <div>
       <hr className="h-1 bg-[#333d79] border-spacing-0 relative -top-2"/>
-      <div className="flex flex-row h-auto border-t-[3] border-[#333d79] text-center text-lg font-bolder relative top-2">
+      <div className="flex flex-row h-auto border-t-[3] border-[#333d79] text-center text-lg font-bolder relative -top-[2px]">
         <span className="justify-start p-0 m-1 text-left">난이도:</span>
         {arr}
       </div>
