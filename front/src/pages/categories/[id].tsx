@@ -16,7 +16,7 @@ const Category: NextPage = () => {
       <h1 className="justify-center w-2/12 py-3 mx-auto mb-4 text-5xl text-center font-bold border-t-4 border-b-4 border-[#333d79]">
         {games?.at(0)?.field.name}
       </h1>
-      <div className="grid justify-center w-7/12 grid-cols-3 gap-4 px-20 mx-auto justify-items-center py-50">
+      <div className="grid justify-center w-5/12 grid-cols-3 gap-4 px-20 mx-auto justify-items-center py-50">
         {games?.map((game) => (
           <GameButton
             key={game.id}
