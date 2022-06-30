@@ -10,7 +10,7 @@ const HelperMain: NextPage = () => {
   return (
     <div className="mt-2">
       <PageHead title="도우미" />
-      <RandomButton id={rannom||0}/>
+      <RandomButton/>
       <div className="grid justify-center w-1/2 h-auto grid-cols-2 gap-4 px-20 m-auto mt-4">
         <HelperButton
           width={350}

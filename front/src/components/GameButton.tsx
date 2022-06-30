@@ -20,14 +20,14 @@ function GameButton({ id,}: Props) {
               : "/img/소주병.png"
           }
           alt="a"
-          width={40}
-          height={35}
+          width={30}
+          height={25}
         />
       );
     }
   }
   return (
-    <div className="hover:shadow-2xl hover:cursor-pointer w-[170px] border-[#333d79] border-2 rounded-2xl p-0 h-[230px]">
+    <div className="hover:shadow-2xl hover:cursor-pointer w-[170px] border-[#333d79] border-2 rounded-2xl p-0 h-[250px]">
       <Link href={`/details/${id}`}>
         <div>
           <h1 className="m-auto border-b-[3px] border-[#333d79] text-center text-2xl font-bold">

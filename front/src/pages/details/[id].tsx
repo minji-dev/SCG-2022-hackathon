@@ -41,9 +41,10 @@ const Detail: NextPage = () => {
               </span>
             </div>
           </Link>
-          <BackToCatButton id={games?.at(0)?.field.id}/>
         </div>
+        <ExampleButton id={Number(id)} />
       </div>
+      <BackToCatButton id={games?.at(0)?.field.id}/>
     </div>
   );
 };
