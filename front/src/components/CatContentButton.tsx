@@ -8,24 +8,26 @@ function CatContentButton({ width, height, id, className }: Props) {
   const fieldsAndFiles = useApi<FieldAndFile[]>("/");
   console.log(fieldsAndFiles?.at(Number(id) - 1)?.file_id.location);
   return (
-    <div className={className}>
-      <Link href={`/categories/${id}`}>
-        <div>
-          <h1 className="border-b-[3px] border-[#333d79]">
-            {fieldsAndFiles?.at(Number(id) - 1)?.field_id.name}
-          </h1>
-          <Image
-            src={
-              fieldsAndFiles?.at(Number(id) - 1)?.file_id.location
-                ? `${fieldsAndFiles?.at(Number(id) - 1)?.file_id.location}`
-                : "/loading.png"
-            }
-            alt={`${fieldsAndFiles?.at(Number(id) - 1)?.file_id.name}`}
-            width={width}
-            height={height}
-          />
-        </div>
-      </Link>
+    <div className="border-[3px] border-[#333d79] rounded-2xl m-2 p-0 text-[#333d79] font-semibold text-center text-2xl">
+      <div className={className}>
+        <Link href={`/categories/${id}`}>
+          <div>
+            <h1 className="border-b-[3px] border-[#333d79]">
+              {fieldsAndFiles?.at(Number(id) - 1)?.field_id.name}
+            </h1>
+            <Image
+              src={
+                fieldsAndFiles?.at(Number(id) - 1)?.file_id.location
+                  ? `${fieldsAndFiles?.at(Number(id) - 1)?.file_id.location}`
+                  : "/loading.png"
+              }
+              alt={`${fieldsAndFiles?.at(Number(id) - 1)?.file_id.name}`}
+              width={width}
+              height={height}
+            />
+          </div>
+        </Link>
+      </div>
     </div>
   );
 }
