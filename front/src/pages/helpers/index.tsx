@@ -3,33 +3,34 @@ import PageHead from "components/PageHead";
 import CatContentButton from "components/CatContentButton";
 import RandomButton from "components/RandomButton";
 import HelperButton from "components/HelperButton";
+import useApi from "hooks/useApi";
 
 const HelperMain: NextPage = () => {
+  let rannom = useApi<number>("helpers/3");
   return (
     <div>
       <PageHead title="도우미" />
-      <h1> 술 게임 도우미 </h1>
-      <div style={{ display: "flex", justifyContent: "center" }}>
-        <HelperButton height={250} width={350} id={1} />
-        <HelperButton height={250} width={350} id={2} />
+      <div className="grid justify-center w-1/2 h-12 min-h-screen grid-cols-2 gap-3 px-20 m-auto">
+        <HelperButton
+          width={350}
+          height={200}
+          id={1}
+          key={1}
+        />
+        <HelperButton
+          width={350}
+          height={200}
+          id={2}
+          key={2}
+        />
+        <HelperButton
+          width={350}
+          height={200}
+          id={3}
+          key={3}
+        />
       </div>
-      <div style={{ display: "flex", justifyContent: "center" }}>
-        <HelperButton height={250} width={725} id={3} />
-      </div>
-      <div>
-        <RandomButton />
-      </div>
-
-      <style jsx>{`
-        @import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);
-        h1 {
-          color: #333d79;
-          text-align: center;
-          font-family: "NanumSquare", sans-serif;
-          font-weight: 700;
-          font-size: 40px;
-        }
-      `}</style>
+      <RandomButton id={rannom||0}/>
     </div>
   );
 };

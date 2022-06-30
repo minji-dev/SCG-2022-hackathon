@@ -4,77 +4,43 @@ import useApi from "hooks/useApi";
 import { useRouter } from "next/router";
 import { Game } from "types/api";
 import ExampleButton from "components/ExampleButton";
-import CatListButton from "components/CatListbutton";
+import Link from "next/link";
+import BackToCatButton from "components/BackToCatbutton";
 
 const Detail: NextPage = () => {
   const router = useRouter();
   const { id } = router.query;
   const games = useApi<Game[]>(`games/${id}`);
-  console.log(games)
+  console.log(games);
   return (
-    <div>
-      <PageHead title={games?.at(0)?.name}/>
-      <h1
-        style={{
-          textAlign: "center",
-          width: "auto",
-          justifyContent: "center",
-          margin: "10px auto",
-          fontWeight: "800",
-          fontSize: "50px"
-        }}
-      >
+    <div className="text-[#333d79]">
+      <PageHead title={games?.at(0)?.name} />
+      <h1 className="justify-center w-auto m-2 text-5xl font-bold text-center">
         {games?.at(0)?.name}
       </h1>
       <div>
-        <div
-          style={{
-            width: "1181px",
-            justifyContent: "center",
-            margin: "0 auto",
-          }}
-        >
-          <p style={{ fontSize: "32px", fontWeight: "700" }}>인트로</p>
-          <hr style={{ marginTop: "5px", marginBottom: "5px", height: "2px" }}/>
-          <p style={{ fontSize: "20px", fontWeight: "550" }}>{games?.at(0)?.intro}</p>
+        <div className="justify-center w-[1181px] m-auto">
+          <p className="text-left border-b-[3px] p-2 border-[#333d79] font-bold text-3xl">
+            인트로
+          </p>
+          <p className="text-xl font-[550] p-2 text-left">
+            {games?.at(0)?.intro}
+          </p>
         </div>
-        <ExampleButton id={Number(id)}/>
-        <div
-          style={{
-            width: "1181px",
-            justifyContent: "center",
-            margin: "0 auto",
-          }}
-        >
-          <p style={{ fontSize: "32px", fontWeight: "700" }}>규칙</p>
-          <hr style={{ marginTop: "5px", marginBottom: "5px", height: "2px" }}/>
-          <p style={{ fontSize: "20px", fontWeight: "550" }}>{games?.at(0)?.context}</p>
+        <ExampleButton id={Number(id)} />
+        <div className="justify-center w-[1181px] m-auto">
+          <p className="text-left border-b-[3px] p-2 border-[#333d79] font-bold text-3xl">
+            규칙
+          </p>
+          <p className="text-xl font-[550] p-2 text-left">{games?.at(0)?.context}</p>
+          <BackToCatButton id={games?.at(0)?.field.id}/>
+          <Link href={`/details/edit/${id}`}>
+            <span className="cursor-pointer hover:bg-slate-500 hover:ring-4 ring-offset-4 ring-slate-500 transition h-12 w-auto border-2 bg-[#333d79] justify- m-auto rounded-3xl px-6 py-2 text-white text-xl inline-block float-right font-medium">
+              수정
+            </span>
+          </Link>
         </div>
       </div>
-      <CatListButton id={Number(id)} />
-      <style jsx>{`
-        @import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);
-        h1 {
-          color: #333d79;
-          text-align: center;
-          font-family: "NanumSquare", sans-serif;
-          font-weight: 700;
-          font-size: 40px;
-        }
-        h2 {
-          color: #333d79;
-          font-family: "NanumSquare", sans-serif;
-        }
-        p {
-          color: #333d79;
-          font-family: "NanumSquare", sans-serif;
-        }
-        hr {
-          background-color: #333d79;
-          height: 3px;
-          border: 0px;
-        }
-      `}</style>
     </div>
   );
 };

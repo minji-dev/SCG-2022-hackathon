@@ -6,4 +6,6 @@ export interface Props {
   name?: string;
   id?: number;
   level?: number;
+  intro?: string;
+  description?: string;
 }

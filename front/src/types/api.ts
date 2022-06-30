@@ -5,11 +5,11 @@ export interface ApiResponse<T> {
 export interface Game {
   id: number;
   name: string;
-  intro: string;
-  context: string;
-  level: number;
+  intro?: string;
+  context?: string;
+  level?: number;
   field: Field;
-  game_file : GameFile[];
+  game_file: GameFile[];
 }
 
 export interface Field {
@@ -17,14 +17,24 @@ export interface Field {
   name: string;
 }
 
-export interface GameFile{
-  type : string;
-  file_id : FileId;
+export interface FieldAndFile {
+  id: number;
+  field_id: FieldId;
+  file_id: FileId;
+}
+
+export interface FieldId {
+  name: string;
+}
+
+export interface GameFile {
+  type: string;
+  file_id: FileId;
 }
 
 export interface FileId {
-  id: number;
+  id?: number;
   name: string;
-  mime: string;
+  mime?: string;
   location: string;
 }

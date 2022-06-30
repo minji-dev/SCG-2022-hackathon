@@ -28,8 +28,12 @@ export class GameController {
     });
   }
 
-  @Delete('/:id')
+  @Delete('/:id')  //       /games/:id -> 특정 게임에 대한 게임 파일 및 게임 삭제
   async removeGame(@Param('id') id: number){
-    return this.gameService.removeGame(id);
+    await this.gameService.removeGame(id);
+    return Object.assign({
+      statusCode: 200,
+      statusMsg: 'delete successful'
+    })
   }
 }

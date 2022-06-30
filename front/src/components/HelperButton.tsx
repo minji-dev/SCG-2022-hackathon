@@ -2,51 +2,31 @@ import { Props } from "types/types";
 import useApi from "hooks/useApi";
 import { Game } from "types/api";
 import Link from "next/link";
+import Image from "next/image";
 
-function HelperButton({ height, width, id }: Props) {
-  const games = useApi<Game[]>(`games`);
+
+function HelperButton({id}: Props) {
+  const helpers = useApi<Game[][]>(`/helpers`);
   return (
-    <Link href={`/helpers/${id}`}>
-      <div>
-        <a>
-          <h1>{games?.at(0)?.name}</h1>
-          <hr />
-          {/* <Image
-          src={ game?.avatar ? `${game?.avatar}` : '/'}
-          alt={`${game?.last_name}`}
-          width={128}
-          height={128}
-          /> */}
-        </a>
-        <style jsx>{`
-          @import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);
-          h1 {
-            color: #333d79;
-            text-align: center;
-            font-family: "NanumSquare", sans-serif;
-            font-weight: 700;
-            font-size: 26px;
-            margin: 10px;
-          }
-          div {
-            box-sizing: border-box;
-            width: ${width}px;
-            height: ${height}px;
-            margin: 10px;
-            background: #ffffff;
-            border: 3px solid #333d79;
-            border-radius: 20px;
-            float: left;
-            padding: 0px;
-          }
-          hr {
-            background-color: #333d79;
-            height: 3px;
-            border: 0px;
-          }
-        `}</style>
+      <div className="hover:shadow-2xl hover:cursor-pointer border-[3px] border-[#333d79] rounded-2xl m-2 p-0 text-[#333d79] font-semibold text-center text-2xl h-56">
+        <Link href={`/helpers/${id}`}>
+          <div>
+            <h1 className="border-b-[3px] border-[#333d79]">
+              {helpers?.at(Number(id)-1)?.at(0)?.name} 도우미!
+            </h1>
+            <Image
+              src={
+                helpers?.at(Number(id)-1)?.at(0)?.game_file?.at(2)?.file_id.location
+                  ? `${helpers?.at(Number(id)-1)?.at(0)?.game_file?.at(2)?.file_id.location}`
+                  : "/loading.png"
+              }
+              alt={`${helpers?.at(Number(id)-1)?.at(0)?.game_file?.at(2)?.file_id.name}`}
+              width={350}
+              height={200}
+            />
+          </div>
+        </Link>
       </div>
-    </Link>
   );
 }
 export default HelperButton;

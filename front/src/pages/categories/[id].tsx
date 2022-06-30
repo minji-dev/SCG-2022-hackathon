@@ -11,44 +11,22 @@ const Category: NextPage = () => {
   const games = useApi<Game[]>(`games?field=${id}`);
 
   return (
-    <div>
+    <div className="text-[#333d79]">
       <PageHead title={games?.at(0)?.field.name} />
-      <h1 style={{ margin: '10px auto', width: '15%', borderBottom: '3px solid', borderTop: '3px solid', fontWeight: "800", fontSize: "50px" }}>{games?.at(0)?.field.name}</h1>
-      <div style={{ display: "grid"}}>
-        <div>
-          {games?.map((game) => (
-              <GameButton
-                key={game.id}
-                id={game.id}
-                width={200}
-                height={300}
-              />
-          ))} 
-        </div>
+      <h1 className="justify-center w-2/12 py-3 mx-auto mb-4 text-5xl text-center font-bold border-t-4 border-b-4 border-[#333d79]">
+        {games?.at(0)?.field.name}
+      </h1>
+      <div className="grid justify-center w-7/12 grid-cols-3 gap-4 px-20 mx-auto justify-items-center py-50">
+        {games?.map((game) => (
+          <GameButton
+            key={game.id}
+            id={game.id}
+            className={""}
+            width={200}
+            height={200}
+          />
+        ))}
       </div>
-      <style jsx>{`
-        @import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);
-        h1 {
-          color: #333d79;
-          text-align: center;
-          font-family: "NanumSquare", sans-serif;
-          font-weight: 700;
-          font-size: 40px;
-        }
-        h2 {
-          color: #333d79;
-          // font-family: 'NanumSquare', sans-serif;
-        }
-        p {
-          color: #333d79;
-          font-family: "NanumSquare", sans-serif;
-        }
-        hr {
-          background-color: #333d79;
-          height: 3px;
-          border: 0px;
-        }
-      `}</style>
     </div>
   );
 };

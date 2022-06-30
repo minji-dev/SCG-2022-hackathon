@@ -1,24 +1,14 @@
 import Link from "next/link";
-function RandomButton() {
+import useApi from "hooks/useApi";
+import { Game } from "types/api";
+import { Props } from "types/types";
+function RandomButton({id}:Props) {
+  console.log(id)
   return (
-    <div style={{ display: "flex", justifyContent: "center" }}>
-      <Link href="/">
-        <button style={{ margin: "10px auto" }}>랜덤~~~~게임</button>
+    <div className="flex justify-center">
+      <Link href={`/randomgames/${id}`}>
+        <span className="cursor-pointer hover:bg-slate-500 hover:ring-4 ring-offset-4 ring-slate-500 transition m-auto p-2 w-44 h-12 bg-[#333d79] rounded-2xl text-white text-2xl font-medium text-center">랜덤~~~~게임</span>
       </Link>
-      <style jsx>{`
-        @import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);
-        button {
-          width: 180px;
-          height: 50px;
-          background: #333d79;
-          border-radius: 20px;
-          border: 0;
-          color: #ffffff;
-          font-family: "NanumSquare", sans-serif;
-          font-size: 22px;
-          font-weight: 500;
-        }
-      `}</style>
     </div>
   );
 }

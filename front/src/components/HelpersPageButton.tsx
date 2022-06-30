@@ -1,24 +1,12 @@
 import Link from "next/link";
 function HelpersPageButton() {
   return (
-    <div style={{ display: "flex", justifyContent: "center" }}>
+    <div className="flex justify-center my-3">
       <Link href="/helpers">
-        <button style={{ margin: "10px auto" }}>게임 도우미</button>
+        <span className="cursor-pointer hover:bg-slate-500 hover:ring-4 ring-offset-4 ring-slate-500 transition h-12 w-auto border-2 bg-[#333d79] justify-center m-auto rounded-3xl px-10 py-2 text-white text-2xl font-medium">
+          게임 도우미
+        </span>
       </Link>
-      <style jsx>{`
-        @import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);
-        button {
-          width: 180px;
-          height: 50px;
-          background: #333d79;
-          border-radius: 20px;
-          border: 0;
-          color: #ffffff;
-          font-family: "NanumSquare", sans-serif;
-          font-size: 22px;
-          font-weight: 500;
-        }
-      `}</style>
     </div>
   );
 }

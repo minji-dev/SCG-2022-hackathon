@@ -78,6 +78,16 @@ export class GameService {
   }
 
   async removeGame(id: number){
+    await this.gamefileRepository
+    .createQueryBuilder()
+    .delete()
+    .where('game_file.game_id = :id', {id:id})
+    .execute(); //일단 game_file 삭제
 
+    await this.gameRepository
+    .createQueryBuilder()
+    .delete()
+    .where('game.id = :id', {id:id})
+    .execute(); //그러고 난 후에 game 삭제
   }
 }

@@ -1,51 +1,32 @@
 import { Props } from "types/types";
 import useApi from "hooks/useApi";
-import { Game, Field } from "types/api";
+import { Game, Field, FieldAndFile } from "types/api";
 import Link from "next/link";
+import Image from "next/image";
 
-function CatContentButton({ id, className}: Props) {
-  const games = useApi<Game[]>(`games?field=${id}`);
+function CatContentButton({ width, height, id, className }: Props) {
+  const fieldsAndFiles = useApi<FieldAndFile[]>("/");
+  console.log(fieldsAndFiles?.at(Number(id) - 1)?.file_id.location);
   return (
-    <div className={className}>
-      <Link  href={`/categories/${id}`}>
-        <div>
-            <h1>{games?.at(0)?.field.name}</h1>
-            <hr />
-            {/* <Image
-            src={ game?.avatar ? `${game?.avatar}` : '/'}
-            alt={`${game?.last_name}`}
-            width={128}
-            height={128}
-            /> */}
-          {/* <style jsx>{`
-            h1 {
-              color: #333d79;
-              text-align: center;
-              font-family: "NanumSquare", sans-serif;
-              font-weight: 700;
-              font-size: 26px;
-              margin: 10px;
-            }
-            div {
-              box-sizing: border-box;
-              width: ${width}px;
-              height: ${height}px;
-              margin: 10px;
-              background: #ffffff;
-              border: 3px solid #333d79;
-              border-radius: 20px;
-              float: left;
-              padding: 0px;
-            }
-            hr {
-              background-color: #333d79;
-              height: 3px;
-              border: 0px;
-            }
-          `}</style> */}
-        </div>
-      </Link>
-    </div>
+      <div className={className}>
+        <Link href={`/categories/${id}`}>
+          <div>
+            <h1 className="border-b-[3px] border-[#333d79]">
+              {fieldsAndFiles?.at(Number(id) - 1)?.field_id.name}
+            </h1>
+            <Image
+              src={
+                fieldsAndFiles?.at(Number(id) - 1)?.file_id.location
+                  ? `${fieldsAndFiles?.at(Number(id) - 1)?.file_id.location}`
+                  : "/loading.png"
+              }
+              alt={`${fieldsAndFiles?.at(Number(id) - 1)?.file_id.name}`}
+              width={width}
+              height={height}
+            />
+          </div>
+        </Link>
+      </div>
   );
 }
 export default CatContentButton;
